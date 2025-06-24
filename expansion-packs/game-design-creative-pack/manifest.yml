@@ -1,0 +1,80 @@
+name: "Game Design Creative Pack"
+version: "1.0.0"
+description: "Creative specialists for game design: game mechanics, narrative design, art direction, and development story creation"
+author: "BMAD Community"
+category: "creative"
+
+agents:
+  - game-designer
+  - narrative-designer  
+  - art-director
+
+tasks:
+  - execute-checklist
+  - game-mechanics-design
+  - gameplay-loops-creation
+  - progression-systems-design
+  - narrative-development
+  - character-creation
+  - level-design
+  - quest-design
+  - visual-style-development
+  - art-prompt-generation
+  - sound-design-specification
+  - create-game-story
+
+templates:
+  - game-mechanics-tmpl
+  - gameplay-loops-tmpl
+  - progression-system-tmpl
+  - game-controls-tmpl
+  - narrative-outline-tmpl
+  - character-profile-tmpl
+  - level-design-tmpl
+  - quest-structure-tmpl
+  - dialogue-tmpl
+  - art-prompt-library-tmpl
+  - sound-design-tmpl
+  - brand-identity-tmpl
+  - ui-theme-tmpl
+  - visual-style-guide-tmpl
+  - game-story-tmpl
+
+checklists:
+  - game-design-checklist
+  - balance-verification-checklist
+  - accessibility-checklist
+  - narrative-consistency-checklist
+  - character-development-checklist
+  - level-flow-checklist
+  - visual-consistency-checklist
+  - accessibility-design-checklist
+  - brand-coherence-checklist
+  - game-story-dod-checklist
+
+workflows:
+  - creative-game-greenfield
+  - creative-game-prototype
+
+data:
+  - game-design-guidelines
+  - player-psychology-patterns
+  - balance-benchmarks
+  - narrative-guidelines
+  - storytelling-techniques
+  - level-design-principles
+  - art-direction-guidelines
+  - ai-prompting-techniques
+  - visual-design-principles
+
+requirements:
+  bmad_version: ">=4.0.0"
+  
+compatibility:
+  workflows:
+    - "greenfield-fullstack"
+    - "greenfield-service" 
+    - "greenfield-ui"
+    - "brownfield-fullstack"
+    - "brownfield-service"
+    - "brownfield-ui" 

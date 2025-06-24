@@ -1,0 +1,20 @@
+bundle:
+  name: Team Creative GameDev
+  icon: 🎮
+  description: Creative specialists for comprehensive game development - from concept to implementation
+agents:
+  - bmad-orchestrator
+  - analyst
+  - pm
+  - ux-expert
+  - architect
+  - po
+  - dev
+  - qa
+  - game-designer
+  - narrative-designer
+  - art-director
+
+workflows:
+  - creative-game-greenfield
+  - creative-game-prototype 

@@ -1,0 +1,199 @@
+workflow:
+  id: creative-game-greenfield
+  name: Creative Game Development - Greenfield Project
+  description: Hybrid workflow combining creative game design specialists with technical development. Starts with creative ideation (mechanics, narrative, art) then transitions to technical implementation using Flutter + Flame engine. Perfect for games requiring both creative depth and technical excellence.
+  type: greenfield
+  project_types:
+    - mobile-game
+    - indie-game
+    - casual-game
+    - educational-game
+    - puzzle-game
+    - adventure-game
+    - rpg-game
+    - arcade-game
+  
+  creative_design_sequence:
+    - agent: game-designer
+      creates: game-concept.md
+      optional_steps:
+        - brainstorming_session
+        - competitive_analysis
+        - player_psychology_research
+      notes: 'Leo creates comprehensive game concept with core mechanics, progression systems, and gameplay loops. Focus on Flutter + Flame capabilities. SAVE OUTPUT: Copy final game-concept.md to your project''s docs/design/ folder.'
+    
+    - agent: narrative-designer
+      creates: narrative-design.md
+      requires: game-concept.md
+      optional_steps:
+        - character_development
+        - world_building
+        - dialogue_writing
+      notes: 'Clara develops story structure, characters, and narrative progression that integrates with game mechanics. SAVE OUTPUT: Copy final narrative-design.md to your project''s docs/design/ folder.'
+    
+    - agent: art-director
+      creates: visual-audio-direction.md
+      requires: 
+        - game-concept.md
+        - narrative-design.md
+      optional_steps:
+        - visual_style_exploration
+        - art_prompt_generation
+        - sound_design_specification
+      notes: 'Milo creates comprehensive visual and audio direction including UI themes, art prompts, and sound design. SAVE OUTPUT: Copy final visual-audio-direction.md to your project''s docs/design/ folder.'
+    
+    - agent: game-designer
+      validates: creative_consistency
+      requires: all_creative_documents
+      uses: game-design-checklist
+      notes: 'Leo validates all creative documents for consistency, balance, and implementability with Flutter + Flame. May require updates to any creative document.'
+    
+    - agent: various
+      updates: flagged_creative_documents
+      condition: creative_validation_issues
+      notes: 'If creative validation finds issues, return to relevant creative agent to fix and re-export updated documents to docs/design/ folder.'
+
+  technical_implementation_sequence:
+    - agent: pm
+      creates: game-prd.md
+      uses: prd-tmpl
+      requires: all_creative_documents
+      notes: 'PM creates comprehensive Product Requirements Document from creative specifications, focusing on Flutter + Flame implementation requirements. SAVE OUTPUT: Copy final game-prd.md to your project''s docs/ folder.'
+    
+    - agent: architect
+      creates: game-architecture.md
+      uses: architecture-tmpl
+      requires: game-prd.md
+      optional_steps:
+        - technical_research_prompt
+        - performance_analysis
+        - flutter_flame_optimization
+      notes: 'Architect creates technical architecture optimized for Flutter + Flame, including performance targets, component structure, and mobile optimization. SAVE OUTPUT: Copy final game-architecture.md to your project''s docs/ folder.'
+    
+    - agent: po
+      validates: all_artifacts
+      uses: po-master-checklist
+      notes: 'PO validates all documents (creative + technical) for consistency, completeness, and development readiness. May require updates to any document.'
+    
+    - agent: various
+      updates: any_flagged_documents
+      condition: po_checklist_issues
+      notes: 'If PO finds issues, return to relevant agent to fix and re-export updated documents to docs/ folder.'
+
+  story_development_phase:
+    - agent: game-designer
+      creates: implementation_stories/
+      uses: create-game-story
+      requires: 
+        - game-architecture.md
+        - all_creative_documents
+      notes: 'Leo creates detailed implementation stories for Flutter + Flame development, breaking down creative vision into actionable development tasks. Each story references specific creative and technical requirements.'
+
+  workflow_end:
+    action: move_to_development
+    notes: 'All creative and technical artifacts complete. Begin Flutter + Flame development using implementation stories. Development should follow technical preferences for Flutter + Flame stack.'
+
+  flow_diagram: |
+    ```mermaid
+    graph TD
+        A[Start: Creative Game Project] --> B[Leo: game-concept.md]
+        B --> C[Clara: narrative-design.md]
+        C --> D[Milo: visual-audio-direction.md]
+        D --> E[Leo: validate creative consistency]
+        E --> F{Creative validation issues?}
+        F -->|Yes| G[Return to creative agent for fixes]
+        F -->|No| H[PM: game-prd.md]
+        G --> E
+        H --> I[Architect: game-architecture.md]
+        I --> J[PO: validate all artifacts]
+        J --> K{PO finds issues?}
+        K -->|Yes| L[Return to relevant agent for fixes]
+        K -->|No| M[Leo: create implementation stories]
+        L --> J
+        M --> N[Move to Flutter + Flame Development]
+
+        B -.-> B1[Optional: brainstorming]
+        B -.-> B2[Optional: competitive analysis]
+        C -.-> C1[Optional: character development]
+        D -.-> D1[Optional: visual style exploration]
+        I -.-> I1[Optional: technical research]
+
+        style N fill:#90EE90
+        style B fill:#FFB6C1
+        style C fill:#FFB6C1
+        style D fill:#FFB6C1
+        style H fill:#FFE4B5
+        style I fill:#FFE4B5
+        style M fill:#FFB6C1
+    ```
+
+  decision_guidance:
+    use_full_creative_sequence_when:
+      - Building story-rich games (RPG, adventure, narrative games)
+      - Games requiring strong visual identity and art direction
+      - Commercial games needing comprehensive creative documentation
+      - Team projects requiring creative-technical coordination
+      - Games with complex mechanics and progression systems
+      - Educational or branded games requiring specific creative requirements
+    
+    skip_narrative_when:
+      - Simple arcade or puzzle games with minimal story
+      - Prototype or proof-of-concept games
+      - Games focusing purely on mechanics over narrative
+    
+    skip_art_direction_when:
+      - Early prototypes using placeholder graphics
+      - Games with predetermined art style or existing assets
+      - Technical demos focusing on functionality over visuals
+
+  handoff_prompts:
+    leo_to_clara: "Game concept complete with mechanics and systems defined. Save as docs/design/game-concept.md, then develop the narrative structure that supports these mechanics."
+    clara_to_milo: "Narrative design complete with characters and story progression. Save as docs/design/narrative-design.md, then create visual and audio direction that brings this world to life."
+    milo_to_validation: "Visual and audio direction complete. Save as docs/design/visual-audio-direction.md, then validate all creative documents for consistency and implementability."
+    creative_to_pm: "All creative documents validated and saved. Create comprehensive PRD that translates creative vision into technical requirements for Flutter + Flame development."
+    pm_to_architect: "Game PRD complete. Save as docs/game-prd.md, then create technical architecture optimized for Flutter + Flame mobile performance."
+    architect_to_po: "Technical architecture complete. Save as docs/game-architecture.md, then validate all artifacts for development readiness."
+    po_to_stories: "All documents validated and ready. Create implementation stories that break down the creative and technical vision into actionable Flutter + Flame development tasks."
+    stories_complete: "Implementation stories created. Begin Flutter + Flame development following the technical preferences and creative specifications."
+
+  flutter_flame_best_practices:
+    performance_targets:
+      - Maintain 60 FPS on target mobile devices
+      - Memory usage optimization for mobile constraints
+      - Battery life considerations for mobile gaming
+      - Smooth animations and responsive touch controls
+      - Fast loading times for game assets
+    
+    technical_standards:
+      - Dart language best practices and null safety
+      - Flame engine component system architecture
+      - Efficient sprite and animation management
+      - Audio system optimization for mobile
+      - State management for game progression
+      - Cross-platform compatibility (iOS/Android)
+    
+    creative_integration:
+      - Art assets optimized for mobile resolution and performance
+      - Audio assets compressed for mobile delivery
+      - UI/UX designed for touch interaction patterns
+      - Narrative pacing suitable for mobile gaming sessions
+      - Progression systems that encourage retention
+
+  success_criteria:
+    creative_phase_complete:
+      - Game concept with balanced mechanics and engaging gameplay loops
+      - Narrative structure that enhances gameplay without overwhelming it
+      - Visual and audio direction that creates cohesive game identity
+      - All creative documents validated for consistency and implementability
+    
+    technical_phase_complete:
+      - PRD that accurately translates creative vision to technical requirements
+      - Architecture optimized for Flutter + Flame mobile performance
+      - All documents validated for development readiness
+      - Implementation stories created and ready for development
+    
+    development_readiness:
+      - Flutter + Flame development environment configured
+      - Asset pipeline established for graphics and audio
+      - Testing framework in place for mobile game testing
+      - Creative and technical specifications aligned and documented 

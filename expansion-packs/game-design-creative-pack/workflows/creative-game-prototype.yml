@@ -1,0 +1,231 @@
+workflow:
+  id: creative-game-prototype
+  name: Creative Game Prototype Development
+  description: Fast-track workflow for rapid game prototyping and creative concept validation. Optimized for game jams, proof-of-concept development, and quick iteration on game mechanics using Flutter + Flame engine with creative input.
+  type: prototype
+  project_types:
+    - game-jam
+    - proof-of-concept
+    - mechanic-test
+    - creative-prototype
+    - learning-project
+    - rapid-iteration
+    - mobile-game-prototype
+
+  rapid_creative_sequence:
+    - step: creative_concept
+      agent: game-designer
+      duration: 20-30 minutes
+      creates: game-concept-brief.md
+      notes: 'Leo quickly defines core game concept, primary mechanic, and creative vision. Focus on what makes this game unique and fun for mobile. One page maximum.'
+    
+    - step: narrative_essence
+      agent: narrative-designer
+      duration: 15-20 minutes
+      creates: narrative-essence.md
+      requires: game-concept-brief.md
+      condition: prototype_needs_story
+      notes: 'Clara creates minimal narrative framework - core theme, basic character motivation, and emotional hook. Essential story elements only.'
+    
+    - step: visual_direction
+      agent: art-director
+      duration: 15-20 minutes
+      creates: visual-brief.md
+      requires: game-concept-brief.md
+      notes: 'Milo defines essential visual style, color palette, and basic UI approach. Focus on mood and feel rather than detailed specifications.'
+
+  rapid_technical_sequence:
+    - step: implementation_stories
+      agent: game-designer
+      duration: 20-30 minutes
+      creates: prototype-stories/
+      uses: create-game-story
+      requires: all_creative_briefs
+      notes: 'Leo creates 3-5 focused implementation stories for core prototype features. Each story should be completable in 2-4 hours using Flutter + Flame.'
+    
+    - step: direct_development
+      agent: dev
+      duration: varies
+      implements: prototype-stories/
+      notes: 'Implement stories in priority order using Flutter + Flame. Test frequently on mobile device and adjust mechanics based on what feels fun. Document discoveries.'
+
+  game_jam_sequence:
+    - step: jam_concept
+      agent: game-designer
+      duration: 10-15 minutes
+      creates: jam-concept.md
+      notes: 'Leo defines game concept based on jam theme. One sentence core mechanic, basic mobile controls, win condition. Focus on Flutter + Flame feasibility.'
+    
+    - step: jam_implementation
+      agent: dev
+      duration: varies (jam timeline)
+      creates: working-prototype
+      requires: jam-concept.md
+      notes: 'Directly implement core mechanic using Flutter + Flame. No formal stories - iterate rapidly on what feels good on mobile. Document major decisions.'
+
+  workflow_end:
+    action: prototype_evaluation
+    notes: 'Prototype complete. Evaluate core mechanics on mobile device, gather feedback, and decide next steps: iterate, expand to full creative workflow, or archive.'
+
+  jam_workflow_end:
+    action: jam_submission
+    notes: 'Submit to game jam. Capture lessons learned and consider post-jam development if concept shows promise for mobile gaming.'
+
+  flow_diagram: |
+    ```mermaid
+    graph TD
+        A[Start: Creative Prototype] --> B{Development Context?}
+        B -->|Standard Prototype| C[Leo: game-concept-brief.md]
+        B -->|Game Jam| D[Leo: jam-concept.md]
+
+        C --> E{Needs Story?}
+        E -->|Yes| F[Clara: narrative-essence.md]
+        E -->|No| G[Milo: visual-brief.md]
+        F --> G
+        G --> H[Leo: create prototype stories]
+        H --> I[Dev: rapid implementation]
+        I --> J[Prototype Evaluation]
+
+        D --> K[Dev: direct implementation]
+        K --> L[Game Jam Submission]
+
+        style J fill:#90EE90
+        style L fill:#90EE90
+        style C fill:#FFB6C1
+        style F fill:#FFB6C1
+        style G fill:#FFB6C1
+        style H fill:#FFB6C1
+        style D fill:#FFA07A
+        style K fill:#FFE4B5
+    ```
+
+  decision_guidance:
+    use_rapid_creative_sequence_when:
+      - Learning Flutter + Flame game development
+      - Testing specific creative concepts or mechanics
+      - Building mobile game portfolio pieces
+      - Have 1-7 days for development
+      - Need structured but fast creative-technical process
+      - Want to validate creative concepts before full development
+    
+    use_game_jam_sequence_when:
+      - Participating in time-constrained game jams
+      - Have 24-72 hours total development time
+      - Want to experiment with creative mobile game concepts
+      - Learning through rapid iteration
+      - Building networking/portfolio presence
+    
+    skip_narrative_when:
+      - Pure mechanics-focused prototypes
+      - Abstract or puzzle games
+      - Technical demos
+      - Time is extremely limited
+
+  prototype_best_practices:
+    creative_scope_management:
+      - Start with one core creative concept that's immediately engaging
+      - Focus on emotional response over feature completeness
+      - One strong creative pillar beats multiple weak ones
+      - Test creative concepts early with basic implementation
+    
+    mobile_considerations:
+      - Design for touch controls from the start
+      - Test on actual mobile devices frequently
+      - Consider mobile gaming session lengths (3-10 minutes)
+      - Optimize for mobile performance constraints
+    
+    rapid_iteration:
+      - Test the creative concept every 1-2 hours of development
+      - Ask "Does this feel good on mobile?" frequently
+      - Be willing to pivot creative direction if it doesn't work
+      - Document what creative elements work and what don't
+    
+    flutter_flame_efficiency:
+      - Use Flame's built-in components and systems heavily
+      - Leverage Flutter widgets for UI elements
+      - Keep graphics simple (geometric shapes, basic sprites)
+      - Focus on gameplay feel over visual polish
+
+  prototype_evaluation_criteria:
+    creative_validation:
+      - Does the core creative concept engage players within 30 seconds?
+      - Is the creative vision clear and consistent?
+      - Does the creative concept translate well to mobile gaming?
+      - Are players emotionally engaged with the concept?
+    
+    mobile_game_feel:
+      - Do touch controls feel responsive and intuitive?
+      - Is the game enjoyable in short mobile sessions?
+      - Does it perform well on target mobile devices?
+      - Is the creative concept suitable for mobile gaming habits?
+    
+    technical_feasibility:
+      - Does the prototype run smoothly on mobile devices?
+      - Are there obvious technical blockers for expansion?
+      - Is the Flutter + Flame implementation clean enough for further development?
+      - Are creative requirements achievable with current technical approach?
+
+  post_prototype_options:
+    iterate_creative_concept:
+      action: continue_creative_prototyping
+      when: Creative concept shows promise but needs refinement
+      next_steps: Create new prototype iteration focusing on identified creative improvements
+    
+    expand_to_full_creative_development:
+      action: transition_to_creative_greenfield
+      when: Prototype validates strong creative and technical concept
+      next_steps: Use creative-game-greenfield workflow to create full creative and technical design
+    
+    pivot_creative_direction:
+      action: new_creative_prototype
+      when: Current concept doesn't work but insights suggest new creative direction
+      next_steps: Apply creative learnings to new prototype concept
+    
+    archive_and_learn:
+      action: document_creative_learnings
+      when: Prototype doesn't work but provides valuable creative insights
+      next_steps: Document creative and technical lessons learned and move to next prototype concept
+
+  flutter_flame_prototyping_tips:
+    quick_setup:
+      - Use flame project templates for rapid setup
+      - Leverage existing Flutter + Flame examples and tutorials
+      - Focus on core game loop implementation first
+      - Use simple geometric shapes for initial graphics
+    
+    mobile_testing:
+      - Test on actual devices early and often
+      - Use Flutter's hot reload for rapid iteration
+      - Monitor performance metrics during development
+      - Test touch controls with real fingers, not mouse
+    
+    creative_implementation:
+      - Implement creative concepts with placeholder assets first
+      - Focus on game feel and creative vision over visual polish
+      - Use Flame's component system to organize creative elements
+      - Iterate on creative timing and pacing frequently
+
+  success_metrics:
+    creative_development_velocity:
+      - Creative concept defined and testable within first 2 hours
+      - Core creative mechanic demonstrable within 4-6 hours of coding
+      - Creative iteration cycles completed in 2-4 hour blocks
+    
+    creative_learning_objectives:
+      - Clear understanding of what makes the creative concept engaging (or not)
+      - Mobile gaming feasibility assessment for creative vision
+      - Player emotional reaction and creative engagement validation
+      - Creative insights for future mobile game development
+    
+    mobile_performance:
+      - Smooth performance on target mobile devices
+      - Responsive touch controls that feel natural
+      - Appropriate mobile gaming session flow
+      - Battery and performance optimization considerations
+
+  handoff_prompts:
+    concept_to_narrative: "Creative game concept defined. Create minimal narrative framework that enhances the core creative vision."
+    narrative_to_visual: "Narrative essence complete. Create visual direction that supports both gameplay and story elements."
+    creative_to_stories: "All creative briefs ready. Create focused implementation stories for rapid Flutter + Flame prototyping."
+    stories_to_implementation: "Prototype stories ready. Begin iterative implementation with frequent mobile testing and creative validation."
+    prototype_to_evaluation: "Prototype playable on mobile. Evaluate creative concepts, gather mobile user feedback, and determine next development steps." 
