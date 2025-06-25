@@ -353,9 +353,10 @@ task-execution:
     - 'Debug Log: | Task | File | Change | Reverted? |'
     - 'Completion Notes: Deviations only, <50 words'
     - 'Change Log: Requirement changes only'
+    - 'File List: CRITICAL - Maintain complete list of ALL files created/modified during implementation'
   blocking: Unapproved deps | Ambiguous after story check | 3 failures | Missing config | Failing validations
-  done: Code matches reqs + All validations pass + Follows standards
-  completion: All [x]→Validations pass→Integration(if noted)→E2E(if noted)→DoD→Summary→HALT
+  done: Code matches reqs + All validations pass + Follows standards + File List complete
+  completion: All [x]→Validations pass→Integration(if noted)→E2E(if noted)→DoD→Update File List→Mark Ready for Review→HALT
 dependencies:
   tasks:
     - execute-checklist
@@ -502,34 +503,35 @@ activation-instructions:
 agent:
   name: Quinn
   id: qa
-  title: Quality Assurance Test Architect
+  title: Senior Developer & QA Architect
   icon: 🧪
-  whenToUse: Use for test planning, test case creation, quality assurance, bug reporting, and testing strategy
+  whenToUse: Use for senior code review, refactoring, test planning, quality assurance, and mentoring through code improvements
   customization: null
 persona:
-  role: Test Architect & Automation Expert
-  style: Methodical, detail-oriented, quality-focused, strategic
-  identity: Senior quality advocate with expertise in test architecture and automation
-  focus: Comprehensive testing strategies, automation frameworks, quality assurance at every phase
+  role: Senior Developer & Test Architect
+  style: Methodical, detail-oriented, quality-focused, mentoring, strategic
+  identity: Senior developer with deep expertise in code quality, architecture, and test automation
+  focus: Code excellence through review, refactoring, and comprehensive testing strategies
   core_principles:
+    - Senior Developer Mindset - Review and improve code as a senior mentoring juniors
+    - Active Refactoring - Don't just identify issues, fix them with clear explanations
     - Test Strategy & Architecture - Design holistic testing strategies across all levels
-    - Automation Excellence - Build maintainable and efficient test automation frameworks
+    - Code Quality Excellence - Enforce best practices, patterns, and clean code principles
     - Shift-Left Testing - Integrate testing early in development lifecycle
+    - Performance & Security - Proactively identify and fix performance/security issues
+    - Mentorship Through Action - Explain WHY and HOW when making improvements
     - Risk-Based Testing - Prioritize testing based on risk and critical areas
-    - Performance & Load Testing - Ensure systems meet performance requirements
-    - Security Testing Integration - Incorporate security testing into QA process
-    - Test Data Management - Design strategies for realistic and compliant test data
-    - Continuous Testing & CI/CD - Integrate tests seamlessly into pipelines
-    - Quality Metrics & Reporting - Track meaningful metrics and provide insights
-    - Cross-Browser & Cross-Platform Testing - Ensure comprehensive compatibility
+    - Continuous Improvement - Balance perfection with pragmatism
+    - Architecture & Design Patterns - Ensure proper patterns and maintainable code structure
 startup:
   - Greet the user with your name and role, and inform of the *help command.
 commands:
   - help: Show numbered list of the following commands to allow selection
   - chat-mode: (Default) QA consultation with advanced-elicitation for test strategy
-  - create-doc {template}: Create doc (no template = show available templates)
   - exit: Say goodbye as the QA Test Architect, and then abandon inhabiting this persona
 dependencies:
+  tasks:
+    - review-story
   data:
     - technical-preferences
   utils:
@@ -919,6 +921,50 @@ BMAD-METHOD (Breakthrough Method of Agile AI-driven Development) is a framework 
 - **Quality Assurance**: Structured testing and validation
 - **Documentation**: Professional PRDs, architecture docs, user stories
 
+## How BMAD Works
+
+### The Core Method
+
+BMAD transforms you into a "Vibe CEO" - directing a team of specialized AI agents through structured workflows. Here's how:
+
+1. **You Direct, AI Executes**: You provide vision and decisions; agents handle implementation details
+2. **Specialized Agents**: Each agent masters one role (PM, Developer, Architect, etc.)
+3. **Structured Workflows**: Proven patterns guide you from idea to deployed code
+4. **Clean Handoffs**: Fresh context windows ensure agents stay focused and effective
+
+### The Two-Phase Approach
+
+**Phase 1: Planning (Web UI - Cost Effective)**
+- Use large context windows (Gemini's 1M tokens)
+- Generate comprehensive documents (PRD, Architecture)
+- Leverage multiple agents for brainstorming
+- Create once, use throughout development
+
+**Phase 2: Development (IDE - Implementation)**
+- Shard documents into manageable pieces
+- Execute focused SM → Dev cycles
+- One story at a time, sequential progress
+- Real-time file operations and testing
+
+### The Development Loop
+
+```text
+1. SM Agent (New Chat) → Creates next story from sharded docs
+2. You → Review and approve story
+3. Dev Agent (New Chat) → Implements approved story
+4. QA Agent (New Chat) → Reviews and refactors code
+5. You → Verify completion
+6. Repeat until epic complete
+```
+
+### Why This Works
+
+- **Context Optimization**: Clean chats = better AI performance
+- **Role Clarity**: Agents don't context-switch = higher quality
+- **Incremental Progress**: Small stories = manageable complexity
+- **Human Oversight**: You validate each step = quality control
+- **Document-Driven**: Specs guide everything = consistency
+
 ## Getting Started
 
 ### Quick Start Options
@@ -933,7 +979,7 @@ BMAD-METHOD (Breakthrough Method of Agile AI-driven Development) is a framework 
 5. Type `/help` to see available commands
 
 #### Option 2: IDE Integration
-**Best for**: Cursor, Claude Code, Windsurf, VS Code users
+**Best for**: Cursor, Claude Code, Windsurf, Cline, Roo Code users
 
 ```bash
 # Interactive installation (recommended)
@@ -942,12 +988,21 @@ npx bmad-method install
 
 **Installation Steps**:
 - Choose "Complete installation"
-- Select your IDE (Cursor, Claude Code, Windsurf, or Roo Code)
+- Select your IDE from supported options:
+  - **Cursor**: Native AI integration
+  - **Claude Code**: Anthropic's official IDE
+  - **Windsurf**: Built-in AI capabilities
+  - **Cline**: VS Code extension with AI features
+  - **Roo Code**: Web-based IDE with agent support
+
+**Note for VS Code Users**: BMAD-METHOD assumes when you mention "VS Code" that you're using it with an AI-powered extension like GitHub Copilot, Cline, or Roo. Standard VS Code without AI capabilities cannot run BMAD agents. The installer includes built-in support for Cline and Roo.
 
 **Verify Installation**:
 - `.bmad-core/` folder created with all agents
 - IDE-specific integration files created
 - All agent commands/rules/modes available
+
+**Remember**: At its core, BMAD-METHOD is about mastering and harnessing prompt engineering. Any IDE with AI agent support can use BMAD - the framework provides the structured prompts and workflows that make AI development effective
 
 ### Environment Selection Guide
 
@@ -964,6 +1019,47 @@ npx bmad-method install
 - Implementation workflow (SM/Dev cycles)
 
 **Cost-Saving Tip**: Create large documents (PRDs, architecture) in web UI, then copy to `docs/prd.md` and `docs/architecture.md` in your project before switching to IDE for development.
+
+### IDE-Only Workflow Considerations
+
+**Can you do everything in IDE?** Yes, but understand the tradeoffs:
+
+**Pros of IDE-Only**:
+- Single environment workflow
+- Direct file operations from start
+- No copy/paste between environments
+- Immediate project integration
+
+**Cons of IDE-Only**:
+- Higher token costs for large document creation
+- Smaller context windows (varies by IDE/model)
+- May hit limits during planning phases
+- Less cost-effective for brainstorming
+
+**Using Web Agents in IDE**:
+- **NOT RECOMMENDED**: Web agents (PM, Architect) have rich dependencies designed for large contexts
+- **Why it matters**: Dev agents are kept lean to maximize coding context
+- **The principle**: "Dev agents code, planning agents plan" - mixing breaks this optimization
+
+**About bmad-master and bmad-orchestrator**:
+- **bmad-master**: CAN do any task without switching agents, BUT...
+- **Still use specialized agents for planning**: PM, Architect, and UX Expert have tuned personas that produce better results
+- **Why specialization matters**: Each agent's personality and focus creates higher quality outputs
+- **If using bmad-master/orchestrator**: Fine for planning phases, but...
+
+**CRITICAL RULE for Development**:
+- **ALWAYS use SM agent for story creation** - Never use bmad-master/orchestrator
+- **ALWAYS use Dev agent for implementation** - Never use bmad-master/orchestrator
+- **Why this matters**: SM and Dev agents are specifically optimized for the development workflow
+- **No exceptions**: Even if using bmad-master for everything else, switch to SM → Dev for implementation
+
+**Best Practice for IDE-Only**:
+1. Use PM/Architect/UX agents for planning (better than bmad-master)
+2. Create documents directly in project
+3. Shard immediately after creation
+4. **MUST switch to SM agent** for story creation
+5. **MUST switch to Dev agent** for implementation
+6. Keep planning and coding in separate chat sessions
 
 ## Core Configuration (core-config.yml)
 
@@ -1242,10 +1338,14 @@ that can handle [specific requirements]."
 
 **Prerequisites**: Planning documents must exist in `docs/` folder
 
-1. **Document Sharding**: 
-   - `@bmad-master` or `@po` shard `docs/prd.md` to `docs/prd/` folder
-   - If architecture exists, shard to `docs/architecture/` folder
-   - Results in multiple manageable documents and epic files
+1. **Document Sharding** (CRITICAL STEP): 
+   - Documents created by PM/Architect (in Web or IDE) MUST be sharded for development
+   - Two methods to shard:
+     a) **Manual**: Drag `shard-doc` task + document file into chat
+     b) **Agent**: Ask `@bmad-master` or `@po` to shard documents
+   - Shards `docs/prd.md` → `docs/prd/` folder
+   - Shards `docs/architecture.md` → `docs/architecture/` folder
+   - **WARNING**: Do NOT shard in Web UI - copying many small files is painful!
 
 2. **Verify Sharded Content**:
    - At least one `epic-n.md` file in `docs/prd/` with stories in development order
@@ -1259,19 +1359,34 @@ that can handle [specific requirements]."
 
 3. **Development Cycle** (Sequential, one story at a time):
 
-   **Step 1 - Story Creation**: New chat window → `@sm` → `*create`
+   **CRITICAL CONTEXT MANAGEMENT**:
+   - **Context windows matter!** Always use fresh, clean context windows
+   - **Model selection matters!** Use most powerful thinking model for SM story creation
+   - **ALWAYS start new chat between SM, Dev, and QA work**
+
+   **Step 1 - Story Creation**: 
+   - **NEW CLEAN CHAT** → Select powerful model → `@sm` → `*create`
    - SM executes create-next-story task
    - Review generated story in `docs/stories/`
    - Update status from "Draft" to "Approved"
    
-   **Step 2 - Story Implementation**: New chat window → `@dev`
+   **Step 2 - Story Implementation**: 
+   - **NEW CLEAN CHAT** → `@dev`
    - Agent asks which story to implement
    - Include story file content to save dev agent lookup time
    - Dev follows tasks/subtasks, marking completion
-   - Dev leaves notes for SM about any deviations
-   - Update status to "Done"
+   - Dev maintains File List of all changes
+   - Dev marks story as "Review" when complete with all tests passing
    
-   **Step 3 - Repeat**: Continue SM → Dev cycle until all epic stories complete
+   **Step 3 - Senior QA Review**:
+   - **NEW CLEAN CHAT** → `@qa` → execute review-story task
+   - QA performs senior developer code review
+   - QA can refactor and improve code directly
+   - QA appends results to story's QA Results section
+   - If approved: Status → "Done"
+   - If changes needed: Status stays "Review" with unchecked items for dev
+   
+   **Step 4 - Repeat**: Continue SM → Dev → QA cycle until all epic stories complete
 
 **Important**: Only 1 story in progress at a time, worked sequentially until all epic stories complete.
 
@@ -1291,12 +1406,27 @@ Each status change requires user verification and approval before proceeding.
 - Development execution
 - Testing and deployment
 
-#### Brownfield Enhancement
-- Current system analysis
-- Enhancement planning
-- Impact assessment
-- Incremental development
-- Integration testing
+#### Brownfield Enhancement (Existing Projects)
+
+**Key Concept**: Brownfield development requires generating good documentation for agents to understand your existing project.
+
+**Recommended Approach**:
+1. **Analysis Phase**: Use Gemini Web or AI Studio with their 1M+ context windows
+2. **Document Generation**: Ask Architect agent to analyze your project and run `document-project` task
+3. **PRD Creation**: Even brownfield projects typically need a PRD unless:
+   - Very small, focused changes
+   - Using `brownfield-create-epic` for single epic without full PRD
+4. **Architecture Assessment**: Use brownfield-specific templates for complex enhancements
+
+**Brownfield Templates Available**:
+- `brownfield-prd-tmpl.md`: For substantial enhancements requiring multiple stories
+- `brownfield-architecture-tmpl.md`: For complex changes impacting system architecture
+- Both templates emphasize compatibility and integration with existing systems
+
+**When to Skip PRD**:
+- For focused, single-epic work, use `brownfield-create-epic` task with detailed guidance
+- For one-off stories without larger context
+- Note: These tasks will evolve to require some documentation (potentially from `document-project`)
 
 ## Document Creation Best Practices
 
@@ -1377,12 +1507,94 @@ Use the `shard-doc` task or `@kayvan/markdown-tree-parser` tool for automatic sh
 - **Keep conversations focused** - One agent, one task per conversation
 - **Review everything** - Always review and approve before marking complete
 
+## Contributing to BMAD-METHOD
+
+### Quick Contribution Guidelines
+
+For full details, see `CONTRIBUTING.md`. Key points:
+
+**Fork Workflow**:
+1. Fork the repository
+2. Create feature branches
+3. Submit PRs to `next` branch (default) or `main` for critical fixes only
+4. Keep PRs small: 200-400 lines ideal, 800 lines maximum
+5. One feature/fix per PR
+
+**PR Requirements**:
+- Clear descriptions (max 200 words) with What/Why/How/Testing
+- Use conventional commits (feat:, fix:, docs:)
+- Atomic commits - one logical change per commit
+- Must align with guiding principles
+
+**Core Principles** (from GUIDING-PRINCIPLES.md):
+- **Dev Agents Must Be Lean**: Minimize dependencies, save context for code
+- **Natural Language First**: Everything in markdown, no code in core
+- **Core vs Expansion Packs**: Core for universal needs, packs for specialized domains
+- **Design Philosophy**: "Dev agents code, planning agents plan"
+
+## Expansion Packs
+
+### What Are Expansion Packs?
+
+Expansion packs extend BMAD-METHOD beyond traditional software development into ANY domain. They provide specialized agent teams, templates, and workflows while keeping the core framework lean and focused on development.
+
+### Why Use Expansion Packs?
+
+1. **Keep Core Lean**: Dev agents maintain maximum context for coding
+2. **Domain Expertise**: Deep, specialized knowledge without bloating core
+3. **Community Innovation**: Anyone can create and share packs
+4. **Modular Design**: Install only what you need
+
+### Available Expansion Packs
+
+**Technical Packs**:
+- **Infrastructure/DevOps**: Cloud architects, SRE experts, security specialists
+- **Game Development**: Game designers, level designers, narrative writers
+- **Mobile Development**: iOS/Android specialists, mobile UX experts
+- **Data Science**: ML engineers, data scientists, visualization experts
+
+**Non-Technical Packs**:
+- **Business Strategy**: Consultants, financial analysts, marketing strategists
+- **Creative Writing**: Plot architects, character developers, world builders
+- **Health & Wellness**: Fitness trainers, nutritionists, habit engineers
+- **Education**: Curriculum designers, assessment specialists
+- **Legal Support**: Contract analysts, compliance checkers
+
+**Specialty Packs**:
+- **Expansion Creator**: Tools to build your own expansion packs
+- **RPG Game Master**: Tabletop gaming assistance
+- **Life Event Planning**: Wedding planners, event coordinators
+- **Scientific Research**: Literature reviewers, methodology designers
+
+### Using Expansion Packs
+
+1. **Browse Available Packs**: Check `expansion-packs/` directory
+2. **Get Inspiration**: See `docs/expansion-pack-ideas.md` for detailed examples
+3. **Install via CLI**: 
+   ```bash
+   npx bmad-method install
+   # Select "Install expansion pack" option
+   ```
+4. **Use in Your Workflow**: Installed packs integrate seamlessly with existing agents
+
+### Creating Custom Expansion Packs
+
+Use the **expansion-creator** pack to build your own:
+
+1. **Define Domain**: What expertise are you capturing?
+2. **Design Agents**: Create specialized roles with clear boundaries
+3. **Build Resources**: Tasks, templates, checklists for your domain
+4. **Test & Share**: Validate with real use cases, share with community
+
+**Key Principle**: Expansion packs democratize expertise by making specialized knowledge accessible through AI agents.
+
 ## Getting Help
 
 - **Commands**: Use `/help` in any environment to see available commands
 - **Agent Switching**: Use `/switch agent-name` with orchestrator for role changes
 - **Documentation**: Check `docs/` folder for project-specific context
 - **Community**: Discord and GitHub resources available for support
+- **Contributing**: See `CONTRIBUTING.md` for full guidelines
 ==================== END: data#bmad-kb ====================
 
 ==================== START: utils#workflow-management ====================
@@ -6444,658 +6656,7 @@ After presenting the report, ask the user if they would like detailed analysis o
 ==================== START: data#technical-preferences ====================
 # User-Defined Preferred Patterns and Preferences
 
-## 🎯 Stack Principal Flutter
-
-### Mobile Development Framework
-- **Framework**: Flutter 3.32.4+ (siempre última versión estable)
-- **Language**: Dart 3.8.1+ (siempre última versión compatible)
-- **Platforms**: iOS, Android, Web (mobile-first approach)
-- **IDE**: Android Studio / VS Code con extensiones Flutter
-
-### State Management
-- **Primary**: Riverpod 2.6.1+ (flutter_riverpod + riverpod_annotation)
-- **Architecture**: Provider pattern con code generation
-- **State Types**: StateProvider, FutureProvider, StreamProvider según necesidad
-- **Rationale**: Type-safe, compile-time safety, excellent DevTools
-
-### Backend & Services
-- **Primary Backend**: Firebase (ecosistema completo)
-- **Authentication**: Firebase Auth 5.6.0+
-- **Database**: Cloud Firestore 5.6.9+
-- **Functions**: Cloud Functions 5.5.2+
-- **Core**: Firebase Core 3.14.0+
-- **Rationale**: Ecosystem completo, escalable, excelente DX
-
-### Navigation
-- **Router**: go_router 15.2.0+
-- **Pattern**: Declarative routing con type-safe routes
-- **Structure**: Nested routing para complex navigation
-- **Rationale**: Más flexible que Navigator 2.0 nativo
-
-### Internationalization
-- **Primary**: flutter_localizations (SDK nativo)
-- **Format**: intl 0.20.2+ para formateo
-- **Pattern**: ARB files con code generation
-- **Support**: Multi-language desde día 1
-
-### Code Generation & Serialization
-- **Models**: freezed 3.0.6+ + freezed_annotation 3.0.0+
-- **JSON**: json_annotation 4.9.0+ + json_serializable 6.9.5+
-- **Riverpod**: riverpod_annotation 2.6.1+ para providers
-- **Build**: build_runner 2.4.15+ para code generation
-
-## 🤖 Artificial Intelligence
-
-### AI Platform
-- **Primary**: Vertex AI (Google Cloud)
-- **Integration**: Via Cloud Functions o directo desde Flutter
-- **Use Cases**: Text generation, image analysis, recommendations
-- **Rationale**: Integración perfecta con Firebase, pricing competitivo
-
-### AI Packages (cuando sea necesario)
-- **HTTP**: http package para calls directas a Vertex AI
-- **Cloud Functions**: firebase_functions para AI processing
-- **Local ML**: tflite_flutter si se necesita procesamiento local
-
-## 🏗️ Arquitectura Flutter Preferida (Clean Architecture + SOLID)
-
-### Principios Arquitectónicos
-- **Clean Architecture**: Separation of concerns, dependency inversion
-- **SOLID Principles**: Single responsibility, open/closed, Liskov substitution, interface segregation, dependency inversion
-- **Features First**: Organize by business features, not technical layers
-- **Composition over Inheritance**: Prefer widget composition over complex inheritance hierarchies
-
-### SOLID Principles en Flutter
-```dart
-// S - Single Responsibility Principle
-// ✅ CORRECTO - Una responsabilidad por widget
-class UserAvatar extends StatelessWidget {
-  const UserAvatar({super.key, required this.user});
-  final User user;
-
-  @override
-  Widget build(BuildContext context) {
-    return CircleAvatar(
-      backgroundImage: user.avatarUrl != null 
-        ? NetworkImage(user.avatarUrl!) 
-        : null,
-      child: user.avatarUrl == null 
-        ? Text(user.name[0].toUpperCase()) 
-        : null,
-    );
-  }
-}
-
-// O - Open/Closed Principle
-// ✅ CORRECTO - Extensible sin modificar
-abstract class BaseButton extends StatelessWidget {
-  const BaseButton({super.key});
-  
-  Widget buildContent(BuildContext context);
-  VoidCallback? get onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      child: buildContent(context),
-    );
-  }
-}
-
-class LoadingButton extends BaseButton {
-  const LoadingButton({super.key, required this.isLoading});
-  final bool isLoading;
-
-  @override
-  Widget buildContent(BuildContext context) {
-    return isLoading 
-      ? const CircularProgressIndicator()
-      : const Text('Submit');
-  }
-
-  @override
-  VoidCallback? get onPressed => isLoading ? null : () {};
-}
-
-// L - Liskov Substitution Principle
-// ✅ CORRECTO - Subclasses intercambiables
-abstract class DataSource<T> {
-  Future<List<T>> getData();
-}
-
-class RemoteDataSource<T> implements DataSource<T> {
-  @override
-  Future<List<T>> getData() async {
-    // Implementation
-    return [];
-  }
-}
-
-class LocalDataSource<T> implements DataSource<T> {
-  @override
-  Future<List<T>> getData() async {
-    // Implementation
-    return [];
-  }
-}
-
-// I - Interface Segregation Principle
-// ✅ CORRECTO - Interfaces específicas
-abstract class Readable {
-  Future<String> read();
-}
-
-abstract class Writable {
-  Future<void> write(String data);
-}
-
-abstract class Cacheable {
-  Future<void> cache(String key, String value);
-  Future<String?> getFromCache(String key);
-}
-
-// D - Dependency Inversion Principle
-// ✅ CORRECTO - Depende de abstracciones
-class UserService {
-  final UserRepository _repository; // Abstraction, not concrete
-  
-  UserService(this._repository);
-  
-  Future<User?> getCurrentUser() => _repository.getCurrentUser();
-}
-```
-
-### Project Structure (Clean Architecture + Features First)
-```
-lib/
-├── core/
-│   ├── di/                    # Dependency injection (Riverpod providers)
-│   ├── router/                # go_router configuration
-│   ├── constants/             # App-wide constants
-│   ├── errors/                # Error handling, exceptions
-│   ├── utils/                 # Pure utility functions
-│   ├── theme/                 # App theming, colors, text styles
-│   └── network/               # HTTP clients, interceptors
-├── features/
-│   └── [feature_name]/
-│       ├── data/
-│       │   ├── datasources/   # Remote/Local data sources
-│       │   ├── models/        # Data models (JSON serializable)
-│       │   └── repositories/  # Repository implementations
-│       ├── domain/
-│       │   ├── entities/      # Business entities (pure Dart)
-│       │   ├── repositories/  # Repository abstractions
-│       │   └── usecases/      # Business logic use cases
-│       └── presentation/
-│           ├── pages/         # Screen-level widgets
-│           ├── widgets/       # Feature-specific reusable widgets
-│           ├── providers/     # Feature-specific Riverpod providers
-│           └── state/         # UI state models
-├── shared/
-│   ├── widgets/               # App-wide reusable widgets
-│   ├── extensions/            # Dart extensions
-│   └── mixins/                # Reusable widget mixins
-└── main.dart
-```
-
-### Clean Architecture Layers
-
-#### 1. Domain Layer (Business Logic)
-```dart
-// entities/ - Pure business objects
-class User {
-  final String id;
-  final String email;
-  final String name;
-  
-  const User({required this.id, required this.email, required this.name});
-}
-
-// repositories/ - Abstract contracts
-abstract class UserRepository {
-  Future<User?> getCurrentUser();
-  Future<void> signOut();
-}
-
-// usecases/ - Business operations
-class GetCurrentUserUseCase {
-  final UserRepository _repository;
-  
-  GetCurrentUserUseCase(this._repository);
-  
-  Future<User?> call() => _repository.getCurrentUser();
-}
-```
-
-#### 2. Data Layer (External Concerns)
-```dart
-// models/ - Data transfer objects
-@freezed
-class UserModel with _$UserModel {
-  const factory UserModel({
-    required String id,
-    required String email,
-    required String name,
-  }) = _UserModel;
-  
-  factory UserModel.fromJson(Map<String, dynamic> json) => _$UserModelFromJson(json);
-}
-
-// datasources/ - External data access
-abstract class UserRemoteDataSource {
-  Future<UserModel?> getCurrentUser();
-}
-
-class FirebaseUserDataSource implements UserRemoteDataSource {
-  final FirebaseAuth _auth;
-  
-  FirebaseUserDataSource(this._auth);
-  
-  @override
-  Future<UserModel?> getCurrentUser() async {
-    final user = _auth.currentUser;
-    if (user == null) return null;
-    
-    return UserModel(id: user.uid, email: user.email!, name: user.displayName ?? '');
-  }
-}
-
-// repositories/ - Implementation
-class UserRepositoryImpl implements UserRepository {
-  final UserRemoteDataSource _dataSource;
-  
-  UserRepositoryImpl(this._dataSource);
-  
-  @override
-  Future<User?> getCurrentUser() async {
-    final userModel = await _dataSource.getCurrentUser();
-    if (userModel == null) return null;
-    
-    return User(id: userModel.id, email: userModel.email, name: userModel.name);
-  }
-}
-```
-
-#### 3. Presentation Layer (UI)
-```dart
-// providers/ - State management
-@riverpod
-class UserNotifier extends _$UserNotifier {
-  @override
-  Future<User?> build() async {
-    final useCase = ref.read(getCurrentUserUseCaseProvider);
-    return await useCase();
-  }
-}
-
-// state/ - UI state models
-@freezed
-class AuthState with _$AuthState {
-  const factory AuthState.initial() = _Initial;
-  const factory AuthState.loading() = _Loading;
-  const factory AuthState.authenticated(User user) = _Authenticated;
-  const factory AuthState.unauthenticated() = _Unauthenticated;
-  const factory AuthState.error(String message) = _Error;
-}
-```
-
-### Firebase Architecture (Clean Architecture Compliant)
-- **Domain Layer**: Pure business entities sin dependencias de Firebase
-- **Data Layer**: Firebase implementations como datasources
-- **Repository Pattern**: Abstract contracts en domain, implementations en data
-- **Dependency Injection**: Riverpod providers para inyección de dependencias
-
-### Dependency Injection Patterns (Riverpod)
-```dart
-// core/di/ - Dependency injection setup
-@riverpod
-FirebaseAuth firebaseAuth(FirebaseAuthRef ref) => FirebaseAuth.instance;
-
-@riverpod
-UserRemoteDataSource userRemoteDataSource(UserRemoteDataSourceRef ref) {
-  return FirebaseUserDataSource(ref.read(firebaseAuthProvider));
-}
-
-@riverpod
-UserRepository userRepository(UserRepositoryRef ref) {
-  return UserRepositoryImpl(ref.read(userRemoteDataSourceProvider));
-}
-
-@riverpod
-GetCurrentUserUseCase getCurrentUserUseCase(GetCurrentUserUseCaseRef ref) {
-  return GetCurrentUserUseCase(ref.read(userRepositoryProvider));
-}
-```
-
-## 📱 UI/UX Preferences & Widget Best Practices
-
-### Widget Architecture Principles
-- **NEVER return widgets from methods** - Always create proper StatelessWidget/StatefulWidget classes
-- **Single Responsibility**: Each widget has one clear purpose
-- **Composition over Inheritance**: Build complex UI through widget composition
-- **Reusable Components**: Create widget libraries, not one-off widgets
-- **Immutable State**: Use @immutable annotations, prefer const constructors
-
-### Widget Creation Standards
-```dart
-// ✅ CORRECTO - Widget class
-class CustomButton extends StatelessWidget {
-  const CustomButton({
-    super.key,
-    required this.text,
-    required this.onPressed,
-    this.isLoading = false,
-  });
-
-  final String text;
-  final VoidCallback? onPressed;
-  final bool isLoading;
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: isLoading ? null : onPressed,
-      child: isLoading 
-        ? const CircularProgressIndicator()
-        : Text(text),
-    );
-  }
-}
-
-// ❌ INCORRECTO - Method returning widget
-Widget _buildButton(String text, VoidCallback onPressed) {
-  return ElevatedButton(
-    onPressed: onPressed,
-    child: Text(text),
-  );
-}
-```
-
-### Reusable Widget Guidelines
-```dart
-// shared/widgets/ - App-wide reusable widgets
-class AppCard extends StatelessWidget {
-  const AppCard({
-    super.key,
-    required this.child,
-    this.padding,
-    this.margin,
-    this.elevation,
-  });
-
-  final Widget child;
-  final EdgeInsets? padding;
-  final EdgeInsets? margin;
-  final double? elevation;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: margin ?? const EdgeInsets.all(8.0),
-      child: Card(
-        elevation: elevation ?? 2.0,
-        child: Padding(
-          padding: padding ?? const EdgeInsets.all(16.0),
-          child: child,
-        ),
-      ),
-    );
-  }
-}
-
-// Usage with composition
-class UserProfileCard extends StatelessWidget {
-  const UserProfileCard({super.key, required this.user});
-  
-  final User user;
-
-  @override
-  Widget build(BuildContext context) {
-    return AppCard(
-      child: Column(
-        children: [
-          CircleAvatar(child: Text(user.name[0])),
-          const SizedBox(height: 8),
-          Text(user.name),
-          Text(user.email),
-        ],
-      ),
-    );
-  }
-}
-```
-
-### Design System
-- **Approach**: Material Design 3 (Material You)
-- **Theme**: Dynamic theming con ColorScheme.fromSeed()
-- **Components**: Prefer Material 3 components
-- **Custom Widgets**: Component-based architecture siguiendo SOLID principles
-
-### Widget Organization
-```dart
-// features/auth/presentation/widgets/
-class LoginForm extends StatefulWidget { ... }
-class SignUpForm extends StatefulWidget { ... }
-class AuthButton extends StatelessWidget { ... }
-
-// shared/widgets/
-class AppButton extends StatelessWidget { ... }
-class AppTextField extends StatelessWidget { ... }
-class LoadingOverlay extends StatelessWidget { ... }
-class ErrorWidget extends StatelessWidget { ... }
-```
-
-### Responsive Design
-- **Approach**: Mobile-first con adaptive layouts
-- **Breakpoints**: LayoutBuilder para responsive behavior
-- **Platform**: Platform-specific adaptations cuando sea necesario
-- **Widget Composition**: Different widgets for different screen sizes
-
-### Performance & Best Practices
-- **const Constructors**: Always use const when possible
-- **Widget Keys**: Use keys for list items and dynamic widgets
-- **Images**: Cached network images con fade transitions
-- **Lists**: ListView.builder para listas largas
-- **Navigation**: Hero animations para transitions suaves
-- **Memory**: Dispose proper de controllers y subscriptions
-- **Build Method**: Keep build methods pure, no side effects
-
-## 🧪 Testing Strategy
-
-### Testing Framework
-- **Unit Tests**: flutter_test (SDK)
-- **Mocking**: mocktail 1.0.4+ (more flexible than mockito)
-- **Widget Tests**: flutter_test con testWidgets
-- **Integration**: integration_test package cuando sea necesario
-
-### Testing Patterns
-- **Providers**: Test providers en isolation
-- **Repositories**: Mock Firebase dependencies
-- **Widgets**: Test UI behavior y state changes
-- **Coverage**: 80%+ para business logic
-
-## 🔧 Development Tools & Quality
-
-### Code Quality
-- **Linting**: very_good_analysis 9.0.0+ (más estricto que flutter_lints)
-- **Additional**: flutter_lints 6.0.0+ como baseline
-- **Format**: dart format con line length 120
-- **Import**: Relative imports para proyecto, absolute para packages
-
-### Development Dependencies
-```yaml
-dev_dependencies:
-  build_runner: ^2.4.15      # Code generation
-  flutter_lints: ^6.0.0       # Basic linting
-  flutter_test:
-    sdk: flutter              # Testing framework
-  freezed: ^3.0.6            # Code generation for models
-  json_serializable: ^6.9.5  # JSON serialization
-  mocktail: ^1.0.4           # Mocking for tests
-  riverpod_annotation: ^2.6.1 # Riverpod code generation
-  very_good_analysis: ^9.0.0  # Strict analysis
-```
-
-### Build Configuration
-- **Release**: --obfuscate --split-debug-info para production
-- **Flavors**: Development, staging, production environments
-- **Assets**: Organized por feature en assets/ folder
-
-## 🚀 Deployment & DevOps
-
-### App Distribution
-- **iOS**: TestFlight para beta, App Store para production
-- **Android**: Play Console Internal Testing → Closed Testing → Production
-- **CI/CD**: GitHub Actions o Bitrise para automated builds
-
-### Environment Management
-- **Config**: flutter_dotenv para environment variables
-- **Flavors**: Development (dev Firebase), Production (prod Firebase)
-- **Secrets**: Environment variables, nunca hardcoded
-
-### Performance Monitoring
-- **Crashes**: Firebase Crashlytics
-- **Performance**: Firebase Performance Monitoring
-- **Analytics**: Firebase Analytics + custom events
-
-## ❌ Tecnologías a Evitar
-
-### State Management
-- **Avoid**: setState para complex state
-- **Avoid**: BLoC/Cubit (preferir Riverpod)
-- **Avoid**: Provider package (legacy, usar Riverpod)
-
-### Navigation
-- **Avoid**: Navigator 1.0 manual para apps complejas
-- **Avoid**: fluro (deprecated)
-- **Avoid**: auto_route (más complejo que go_router)
-
-### Backend
-- **Avoid**: Custom backends para MVPs (usar Firebase)
-- **Avoid**: REST APIs custom cuando Firebase funciona
-- **Avoid**: GraphQL para apps simples (overkill)
-
-### Dependencies
-- **Avoid**: Packages sin null safety
-- **Avoid**: Packages sin mantenimiento activo (>6 meses)
-- **Avoid**: Packages con muchas dependencies transitivas
-
-### Anti-Patterns to Avoid
-- **God Widgets**: Widgets con más de 300 líneas o múltiples responsabilidades
-- **Method Widget Builders**: Métodos que retornan widgets en lugar de clases
-- **Tight Coupling**: Widgets que dependen directamente de servicios externos
-- **Mutable State**: State classes sin @immutable o const constructors
-- **Deep Widget Trees**: Más de 10 niveles de anidación sin composition
-
-## 📚 Lecciones Aprendidas
-
-### Firebase
-- Cloud Functions en TypeScript mejor DX que Python/Go
-- Firestore compound queries require careful index planning
-- Firebase Auth persistent state works excellent with Riverpod
-- Cloud Functions cold starts can be mitigated with keep-warm strategies
-
-### Flutter Performance
-- ListView.builder es crucial para listas >100 items
-- Image caching significant impact en user experience
-- go_router navigation transitions smoother than Navigator 1.0
-- Riverpod code generation prevents runtime errors
-
-### Development Workflow
-- freezed + json_serializable save significant boilerplate
-- very_good_analysis catches issues early, worth the strict rules
-- Firebase emulator suite essential for local development
-- Hot reload works better with Riverpod than other state management
-
-### Production Deployment
-- iOS builds require specific Xcode versions, maintain compatibility matrix
-- Android Play Store reviews faster than iOS App Store reviews
-- Firebase Analytics data appears with ~24h delay
-- App size optimization critical for emerging markets
-
-## 🚀 Exploraciones Futuras
-
-### Próximos a Evaluar
-- **Flutter 3.25+**: Impeller engine improvements para better performance
-- **Dart 3.9+**: New language features, pattern matching improvements
-- **Firebase Data Connect**: New GraphQL layer for Firestore
-- **Vertex AI Embeddings**: Para semantic search en apps
-
-### Tecnologías en Radar
-- **FlutterFlow**: Para rapid prototyping de UIs complejas
-- **Shorebird**: Code push para Flutter apps
-- **Flutter Web**: Cuando performance mejore para production apps
-- **Flutter Desktop**: Para cross-platform desktop expansion
-
-### AI Integration Opportunities
-- **Vertex AI Generative APIs**: Text, image, multimodal generation
-- **Firebase ML**: Custom model deployment
-- **TensorFlow Lite**: Edge AI para offline capabilities
-- **LangChain Dart**: Si ecosystem madura
-
-## 🎮 Gaming Considerations (Flutter + Flame)
-
-### Game Development (cuando aplique)
-- **Engine**: Flame 1.12.0+ para 2D games
-- **Performance**: Flame component system + object pooling
-- **Audio**: audioplayers o flame_audio
-- **Physics**: flame_forge2d para physics-based games
-- **Backend**: Firebase para leaderboards, user progress, analytics
-
-### Game-Specific Packages
-```yaml
-flame: ^1.29.0              # Game engine
-flame_audio: ^2.11.6        # Audio system
-flame_forge2d: ^0.19.0      # Physics engine
-flame_riverpod: ^5.4.15     # Riverpod integration    
-```
-
-## 📝 Dependencies Standard Template
-
-### Production Dependencies
-```yaml
-dependencies:
-  cloud_firestore: ^5.6.9    # Always latest stable
-  cloud_functions: ^5.5.2     # Always latest stable
-  firebase_auth: ^5.6.0       # Always latest stable
-  firebase_core: ^3.14.0      # Always latest stable
-  flutter:
-    sdk: flutter
-  flutter_localizations:
-    sdk: flutter              # Internationalization
-  flutter_riverpod: ^2.6.1   # State management
-  freezed_annotation: ^3.0.0  # Code generation annotations
-  go_router: ^15.2.0         # Navigation
-  intl: 0.20.2               # Internationalization formatting
-  json_annotation: ^4.9.0    # JSON serialization annotations
-  riverpod: ^2.6.1           # State management core
-```
-
-### Development Dependencies
-```yaml
-dev_dependencies:
-  build_runner: ^2.4.15      # Code generation runner
-  flutter_lints: ^6.0.0       # Basic linting rules
-  flutter_test:
-    sdk: flutter              # Testing framework
-  freezed: ^3.0.6            # Immutable classes generation
-  json_serializable: ^6.9.5  # JSON serialization generation
-  mocktail: ^1.0.4           # Testing mocks
-  riverpod_annotation: ^2.6.1 # Riverpod code generation
-  very_good_analysis: ^9.0.0  # Strict linting rules
-```
-
----
-
-## 📝 Notas de Mantenimiento
-
-- **Última actualización**: Basado en Flutter 3.32.4 / Dart 3.8.1
-- **Próxima revisión**: Cada release mayor de Flutter
-- **Política de versiones**: Siempre usar latest stable, actualizar dependencies mensualmente
-- **Testing**: Todas las preferencias validadas en proyectos de producción
-
-**Este perfil técnico está optimizado para desarrollo mobile-first con Flutter + Firebase + Riverpod, priorizando developer experience, type safety, y maintainability a largo plazo.**
+None Listed
 ==================== END: data#technical-preferences ====================
 
 ==================== START: checklists#story-dod-checklist ====================
@@ -8853,6 +8414,10 @@ Manual Test Steps: [[LLM: Include how if possible the user can manually test the
 [[LLM: (SM Agent) When Drafting Story, leave next prompt in place for dev agent to remove and update - remove this line to the SM]]
 [[LLM: (Dev Agent) Anything the SM needs to know that deviated from the story that might impact drafting the next story.]]
 
+### File List
+
+[[LLM: (Dev Agent) List every new file created, or existing file modified in a bullet list.]]
+
 ### Change Log
 
 [[LLM: (SM Agent) When Drafting Story, leave next prompt in place for dev agent to remove and update- remove this line to the SM]]
@@ -8860,6 +8425,10 @@ Manual Test Steps: [[LLM: Include how if possible the user can manually test the
 
 | Date | Version | Description | Author |
 | :--- | :------ | :---------- | :----- |
+
+## QA Results
+
+[[LLM: QA Agent Results]]
 ==================== END: templates#story-tmpl ====================
 
 ==================== START: checklists#po-master-checklist ====================
@@ -9305,6 +8874,144 @@ After presenting the report, ask if the user wants:
 - **CONDITIONAL**: The plan requires specific adjustments before proceeding.
 - **REJECTED**: The plan requires significant revision to address critical deficiencies.
 ==================== END: checklists#po-master-checklist ====================
+
+==================== START: tasks#review-story ====================
+# review-story
+
+When a developer marks a story as "Ready for Review", perform a comprehensive senior developer code review with the ability to refactor and improve code directly.
+
+[[LLM: QA Agent executing review-story task as Senior Developer]]
+
+## Prerequisites
+
+- Story status must be "Review"
+- Developer has completed all tasks and updated the File List
+- All automated tests are passing
+
+## Review Process
+
+1. **Read the Complete Story**
+   - Review all acceptance criteria
+   - Understand the dev notes and requirements
+   - Note any completion notes from the developer
+
+2. **Focus on the File List**
+   - Verify all files listed were actually created/modified
+   - Check for any missing files that should have been updated
+
+3. **Senior Developer Code Review**
+   - Review code with the eye of a senior developer
+   - If changes form a cohesive whole, review them together
+   - If changes are independent, review incrementally file by file
+   - Focus on:
+     - Code architecture and design patterns
+     - Refactoring opportunities
+     - Code duplication or inefficiencies
+     - Performance optimizations
+     - Security concerns
+     - Best practices and patterns
+
+4. **Active Refactoring**
+   - As a senior developer, you CAN and SHOULD refactor code where improvements are needed
+   - When refactoring:
+     - Make the changes directly in the files
+     - Explain WHY you're making the change
+     - Describe HOW the change improves the code
+     - Ensure all tests still pass after refactoring
+     - Update the File List if you modify additional files
+
+5. **Standards Compliance Check**
+   - Verify adherence to `docs/coding-standards.md`
+   - Check compliance with `docs/unified-project-structure.md`
+   - Validate testing approach against `docs/testing-strategy.md`
+   - Ensure all guidelines mentioned in the story are followed
+
+6. **Acceptance Criteria Validation**
+   - Verify each AC is fully implemented
+   - Check for any missing functionality
+   - Validate edge cases are handled
+
+7. **Test Coverage Review**
+   - Ensure unit tests cover edge cases
+   - Add missing tests if critical coverage is lacking
+   - Verify integration tests (if required) are comprehensive
+   - Check that test assertions are meaningful
+   - Look for missing test scenarios
+
+8. **Documentation and Comments**
+   - Verify code is self-documenting where possible
+   - Add comments for complex logic if missing
+   - Ensure any API changes are documented
+
+## Append Results to Story File
+
+After review and any refactoring, append your results to the story file in the QA Results section:
+
+```markdown
+## QA Results
+
+### Review Date: [Date]
+### Reviewed By: Quinn (Senior Developer QA)
+
+### Code Quality Assessment
+[Overall assessment of implementation quality]
+
+### Refactoring Performed
+[List any refactoring you performed with explanations]
+- **File**: [filename]
+  - **Change**: [what was changed]
+  - **Why**: [reason for change]
+  - **How**: [how it improves the code]
+
+### Compliance Check
+- Coding Standards: [✓/✗] [notes if any]
+- Project Structure: [✓/✗] [notes if any]
+- Testing Strategy: [✓/✗] [notes if any]
+- All ACs Met: [✓/✗] [notes if any]
+
+### Improvements Checklist
+[Check off items you handled yourself, leave unchecked for dev to address]
+
+- [x] Refactored user service for better error handling (services/user.service.ts)
+- [x] Added missing edge case tests (services/user.service.test.ts)
+- [ ] Consider extracting validation logic to separate validator class
+- [ ] Add integration test for error scenarios
+- [ ] Update API documentation for new error codes
+
+### Security Review
+[Any security concerns found and whether addressed]
+
+### Performance Considerations
+[Any performance issues found and whether addressed]
+
+### Final Status
+[✓ Approved - Ready for Done] / [✗ Changes Required - See unchecked items above]
+```
+
+## Key Principles
+
+- You are a SENIOR developer reviewing junior/mid-level work
+- You have the authority and responsibility to improve code directly
+- Always explain your changes for learning purposes
+- Balance between perfection and pragmatism
+- Focus on significant improvements, not nitpicks
+
+## Blocking Conditions
+
+Stop the review and request clarification if:
+- Story file is incomplete or missing critical sections
+- File List is empty or clearly incomplete
+- No tests exist when they were required
+- Code changes don't align with story requirements
+- Critical architectural issues that require discussion
+
+## Completion
+
+After review:
+1. If all items are checked and approved: Update story status to "Done"
+2. If unchecked items remain: Keep status as "Review" for dev to address
+3. Always provide constructive feedback and explanations for learning
+==================== END: tasks#review-story ====================
 
 ==================== START: tasks#create-next-story ====================
 # Create Next Story Task
@@ -10235,7 +9942,42 @@ workflow:
 
     - workflow_end:
       action: move_to_ide
-      notes: "All planning artifacts complete. Move to IDE environment to begin development. Explain to the user the IDE Development Workflow next steps: data#bmad-kb:IDE Development Workflow"
+      notes: |
+        Planning phase complete! Now transition to IDE Development:
+        
+        1. ENSURE DOCUMENTS ARE IN PROJECT:
+           - Copy final prd.md to project's docs/prd.md
+           - Copy final architecture.md to project's docs/architecture.md
+           - All documents must be in the project before proceeding
+        
+        2. SHARD DOCUMENTS (in IDE):
+           - Option A: Use PO agent to shard: @po then ask to shard docs/prd.md
+           - Option B: Manual: Drag shard-doc task + docs/prd.md into chat
+           - This creates docs/prd/ and docs/architecture/ folders with sharded content
+        
+        3. START DEVELOPMENT CYCLE:
+           a. SM Agent (New Chat): @sm → *create
+              - Creates next story from sharded docs
+              - Review and approve story (Draft → Approved)
+           
+           b. Dev Agent (New Chat): @dev
+              - Implements approved story
+              - Updates File List with all changes
+              - Marks story as "Review" when complete
+           
+           c. QA Agent (New Chat): @qa → review-story
+              - Senior dev review with refactoring ability
+              - Fixes small issues directly
+              - Leaves checklist for remaining items
+              - Updates story status (Review → Done or stays Review)
+           
+           d. If QA left unchecked items:
+              - Dev Agent (New Chat): Address remaining items
+              - Return to QA for final approval
+        
+        4. REPEAT: Continue cycle for all epic stories
+        
+        Reference: data#bmad-kb:IDE Development Workflow
 
   flow_diagram: |
     ```mermaid
@@ -10316,7 +10058,42 @@ workflow:
 
     - workflow_end:
       action: move_to_ide
-      notes: "All planning artifacts complete. Move to IDE environment to begin development. Explain to the user the IDE Development Workflow next steps: data#bmad-kb:IDE Development Workflow"
+      notes: |
+        Planning phase complete! Now transition to IDE Development:
+        
+        1. ENSURE DOCUMENTS ARE IN PROJECT:
+           - Copy final prd.md to project's docs/prd.md
+           - Copy final architecture.md to project's docs/architecture.md
+           - All documents must be in the project before proceeding
+        
+        2. SHARD DOCUMENTS (in IDE):
+           - Option A: Use PO agent to shard: @po then ask to shard docs/prd.md
+           - Option B: Manual: Drag shard-doc task + docs/prd.md into chat
+           - This creates docs/prd/ and docs/architecture/ folders with sharded content
+        
+        3. START DEVELOPMENT CYCLE:
+           a. SM Agent (New Chat): @sm → *create
+              - Creates next story from sharded docs
+              - Review and approve story (Draft → Approved)
+           
+           b. Dev Agent (New Chat): @dev
+              - Implements approved story
+              - Updates File List with all changes
+              - Marks story as "Review" when complete
+           
+           c. QA Agent (New Chat): @qa → review-story
+              - Senior dev review with refactoring ability
+              - Fixes small issues directly
+              - Leaves checklist for remaining items
+              - Updates story status (Review → Done or stays Review)
+           
+           d. If QA left unchecked items:
+              - Dev Agent (New Chat): Address remaining items
+              - Return to QA for final approval
+        
+        4. REPEAT: Continue cycle for all epic stories
+        
+        Reference: data#bmad-kb:IDE Development Workflow
 
   flow_diagram: |
     ```mermaid
@@ -10404,7 +10181,42 @@ workflow:
 
     - workflow_end:
       action: move_to_ide
-      notes: "All planning artifacts complete. Move to IDE environment to begin development. Explain to the user the IDE Development Workflow next steps: data#bmad-kb:IDE Development Workflow"
+      notes: |
+        Planning phase complete! Now transition to IDE Development:
+        
+        1. ENSURE DOCUMENTS ARE IN PROJECT:
+           - Copy final prd.md to project's docs/prd.md
+           - Copy final architecture.md to project's docs/architecture.md
+           - All documents must be in the project before proceeding
+        
+        2. SHARD DOCUMENTS (in IDE):
+           - Option A: Use PO agent to shard: @po then ask to shard docs/prd.md
+           - Option B: Manual: Drag shard-doc task + docs/prd.md into chat
+           - This creates docs/prd/ and docs/architecture/ folders with sharded content
+        
+        3. START DEVELOPMENT CYCLE:
+           a. SM Agent (New Chat): @sm → *create
+              - Creates next story from sharded docs
+              - Review and approve story (Draft → Approved)
+           
+           b. Dev Agent (New Chat): @dev
+              - Implements approved story
+              - Updates File List with all changes
+              - Marks story as "Review" when complete
+           
+           c. QA Agent (New Chat): @qa → review-story
+              - Senior dev review with refactoring ability
+              - Fixes small issues directly
+              - Leaves checklist for remaining items
+              - Updates story status (Review → Done or stays Review)
+           
+           d. If QA left unchecked items:
+              - Dev Agent (New Chat): Address remaining items
+              - Return to QA for final approval
+        
+        4. REPEAT: Continue cycle for all epic stories
+        
+        Reference: data#bmad-kb:IDE Development Workflow
 
   flow_diagram: |
     ```mermaid
@@ -10520,7 +10332,42 @@ workflow:
 
     - workflow_end:
       action: move_to_ide
-      notes: "All planning artifacts complete. Move to IDE environment to begin development. Explain to the user the IDE Development Workflow next steps: data#bmad-kb:IDE Development Workflow"
+      notes: |
+        Planning phase complete! Now transition to IDE Development:
+        
+        1. ENSURE DOCUMENTS ARE IN PROJECT:
+           - Copy final prd.md to project's docs/prd.md
+           - Copy final architecture.md to project's docs/architecture.md
+           - All documents must be in the project before proceeding
+        
+        2. SHARD DOCUMENTS (in IDE):
+           - Option A: Use PO agent to shard: @po then ask to shard docs/prd.md
+           - Option B: Manual: Drag shard-doc task + docs/prd.md into chat
+           - This creates docs/prd/ and docs/architecture/ folders with sharded content
+        
+        3. START DEVELOPMENT CYCLE:
+           a. SM Agent (New Chat): @sm → *create
+              - Creates next story from sharded docs
+              - Review and approve story (Draft → Approved)
+           
+           b. Dev Agent (New Chat): @dev
+              - Implements approved story
+              - Updates File List with all changes
+              - Marks story as "Review" when complete
+           
+           c. QA Agent (New Chat): @qa → review-story
+              - Senior dev review with refactoring ability
+              - Fixes small issues directly
+              - Leaves checklist for remaining items
+              - Updates story status (Review → Done or stays Review)
+           
+           d. If QA left unchecked items:
+              - Dev Agent (New Chat): Address remaining items
+              - Return to QA for final approval
+        
+        4. REPEAT: Continue cycle for all epic stories
+        
+        Reference: data#bmad-kb:IDE Development Workflow
 
   flow_diagram: |
     ```mermaid
@@ -10630,7 +10477,42 @@ workflow:
 
     - workflow_end:
       action: move_to_ide
-      notes: "All planning artifacts complete. Move to IDE environment to begin development. Explain to the user the IDE Development Workflow next steps: data#bmad-kb:IDE Development Workflow"
+      notes: |
+        Planning phase complete! Now transition to IDE Development:
+        
+        1. ENSURE DOCUMENTS ARE IN PROJECT:
+           - Copy final prd.md to project's docs/prd.md
+           - Copy final architecture.md to project's docs/architecture.md
+           - All documents must be in the project before proceeding
+        
+        2. SHARD DOCUMENTS (in IDE):
+           - Option A: Use PO agent to shard: @po then ask to shard docs/prd.md
+           - Option B: Manual: Drag shard-doc task + docs/prd.md into chat
+           - This creates docs/prd/ and docs/architecture/ folders with sharded content
+        
+        3. START DEVELOPMENT CYCLE:
+           a. SM Agent (New Chat): @sm → *create
+              - Creates next story from sharded docs
+              - Review and approve story (Draft → Approved)
+           
+           b. Dev Agent (New Chat): @dev
+              - Implements approved story
+              - Updates File List with all changes
+              - Marks story as "Review" when complete
+           
+           c. QA Agent (New Chat): @qa → review-story
+              - Senior dev review with refactoring ability
+              - Fixes small issues directly
+              - Leaves checklist for remaining items
+              - Updates story status (Review → Done or stays Review)
+           
+           d. If QA left unchecked items:
+              - Dev Agent (New Chat): Address remaining items
+              - Return to QA for final approval
+        
+        4. REPEAT: Continue cycle for all epic stories
+        
+        Reference: data#bmad-kb:IDE Development Workflow
 
   flow_diagram: |
     ```mermaid
@@ -10749,7 +10631,42 @@ workflow:
 
     - workflow_end:
       action: move_to_ide
-      notes: "All planning artifacts complete. Move to IDE environment to begin development. Explain to the user the IDE Development Workflow next steps: data#bmad-kb:IDE Development Workflow"
+      notes: |
+        Planning phase complete! Now transition to IDE Development:
+        
+        1. ENSURE DOCUMENTS ARE IN PROJECT:
+           - Copy final prd.md to project's docs/prd.md
+           - Copy final architecture.md to project's docs/architecture.md
+           - All documents must be in the project before proceeding
+        
+        2. SHARD DOCUMENTS (in IDE):
+           - Option A: Use PO agent to shard: @po then ask to shard docs/prd.md
+           - Option B: Manual: Drag shard-doc task + docs/prd.md into chat
+           - This creates docs/prd/ and docs/architecture/ folders with sharded content
+        
+        3. START DEVELOPMENT CYCLE:
+           a. SM Agent (New Chat): @sm → *create
+              - Creates next story from sharded docs
+              - Review and approve story (Draft → Approved)
+           
+           b. Dev Agent (New Chat): @dev
+              - Implements approved story
+              - Updates File List with all changes
+              - Marks story as "Review" when complete
+           
+           c. QA Agent (New Chat): @qa → review-story
+              - Senior dev review with refactoring ability
+              - Fixes small issues directly
+              - Leaves checklist for remaining items
+              - Updates story status (Review → Done or stays Review)
+           
+           d. If QA left unchecked items:
+              - Dev Agent (New Chat): Address remaining items
+              - Return to QA for final approval
+        
+        4. REPEAT: Continue cycle for all epic stories
+        
+        Reference: data#bmad-kb:IDE Development Workflow
 
   flow_diagram: |
     ```mermaid
