@@ -229,22 +229,27 @@ The LLM will:
 # Narrative Development Task
 
 ## Objective
+
 Create compelling game narratives that enhance gameplay and create emotional player engagement.
 
 ## Process
+
 1. **Establish Narrative Framework**
+
    - Define story themes and core message
    - Create protagonist and character arcs
    - Establish world lore and setting
    - Design narrative tone and style
 
 2. **Structure Story Beats**
+
    - Create three-act story structure
    - Design key story moments and reveals
    - Plan character development arcs
    - Integrate narrative with gameplay moments
 
 3. **Write Core Content**
+
    - Develop main storyline and dialogue
    - Create side quests and optional content
    - Write environmental storytelling elements
@@ -257,12 +262,14 @@ Create compelling game narratives that enhance gameplay and create emotional pla
    - Optimize for different player paths
 
 ## Deliverables
+
 - Complete narrative outline and structure
 - Character profiles and development arcs
 - Dialogue scripts and conversation trees
 - Environmental storytelling specifications
 
 ## Success Criteria
+
 - Story enhances rather than interrupts gameplay
 - Characters are memorable and relatable
 - Narrative maintains internal consistency
@@ -273,22 +280,27 @@ Create compelling game narratives that enhance gameplay and create emotional pla
 # Character Creation Task
 
 ## Objective
+
 Develop memorable and compelling game characters with distinct personalities and meaningful roles.
 
 ## Process
+
 1. **Character Conceptualization**
+
    - Define character role and purpose in the game
    - Establish personality traits and motivations
    - Create backstory and character history
    - Design character relationships and conflicts
 
 2. **Character Development**
+
    - Write detailed character profiles
    - Create character arcs and growth paths
    - Design unique voice and dialogue style
    - Establish character strengths and flaws
 
 3. **Visual Character Design**
+
    - Define character appearance and style
    - Create character expressions and poses
    - Design costume and visual identity
@@ -301,12 +313,14 @@ Develop memorable and compelling game characters with distinct personalities and
    - Test character likability and memorability
 
 ## Deliverables
+
 - Complete character profiles and backstories
 - Character design specifications
 - Dialogue samples and voice guidelines
 - Character relationship maps
 
 ## Success Criteria
+
 - Characters are distinctive and memorable
 - Characters serve clear narrative functions
 - Player forms emotional connections with characters
@@ -317,22 +331,27 @@ Develop memorable and compelling game characters with distinct personalities and
 # Level Design Task
 
 ## Objective
+
 Create engaging and well-structured game levels that support gameplay mechanics and narrative flow.
 
 ## Process
+
 1. **Level Planning**
+
    - Define level objectives and goals
    - Establish level theme and atmosphere
    - Plan level flow and pacing
    - Design challenge progression
 
 2. **Layout Design**
+
    - Create level maps and spatial layouts
    - Design player movement paths
    - Place key gameplay elements and obstacles
    - Ensure visual clarity and navigation
 
 3. **Gameplay Integration**
+
    - Integrate core game mechanics into level design
    - Create meaningful player choices and paths
    - Design enemy placement and encounters
@@ -345,12 +364,14 @@ Create engaging and well-structured game levels that support gameplay mechanics 
    - Ensure replayability and player engagement
 
 ## Deliverables
+
 - Level design documents and maps
 - Gameplay flow diagrams
 - Asset placement specifications
 - Difficulty balancing documentation
 
 ## Success Criteria
+
 - Levels support and enhance core gameplay
 - Player navigation is intuitive and clear
 - Difficulty progression feels appropriate
@@ -361,22 +382,27 @@ Create engaging and well-structured game levels that support gameplay mechanics 
 # Quest Design Task
 
 ## Objective
+
 Design compelling quests and missions that provide meaningful gameplay experiences and narrative progression.
 
 ## Process
+
 1. **Quest Conceptualization**
+
    - Define quest objectives and player goals
    - Establish quest narrative context and motivation
    - Design quest complexity and scope
    - Plan integration with main storyline
 
 2. **Quest Structure Design**
+
    - Create quest steps and progression flow
    - Design branching paths and player choices
    - Establish success and failure conditions
    - Plan reward structures and incentives
 
 3. **Implementation Planning**
+
    - Specify required assets and locations
    - Design dialogue and character interactions
    - Plan technical requirements and triggers
@@ -389,12 +415,14 @@ Design compelling quests and missions that provide meaningful gameplay experienc
    - Verify narrative consistency and impact
 
 ## Deliverables
+
 - Quest design documents and flowcharts
 - Dialogue scripts and character interactions
 - Reward and progression specifications
 - Technical implementation requirements
 
 ## Success Criteria
+
 - Quests provide clear objectives and meaningful choices
 - Player motivation and engagement are maintained
 - Quests integrate well with overall game progression
@@ -405,41 +433,50 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 # Narrative Outline Template
 
 ## Story Overview
+
 **Title**: [Game/Story title]
 **Genre**: [Narrative genre]
 **Theme**: [Central message/theme]
 **Tone**: [Serious/Humorous/Dark/etc.]
 
 ## Three-Act Structure
+
 ### Act I - Setup
+
 - **Hook**: [Opening that grabs attention]
 - **World Introduction**: [Setting and context]
 - **Character Introduction**: [Key characters]
 - **Inciting Incident**: [Event that starts the story]
 
-### Act II - Confrontation  
+### Act II - Confrontation
+
 - **Rising Action**: [Building tension and challenges]
 - **Character Development**: [How characters grow]
 - **Major Conflicts**: [Primary obstacles]
 - **Midpoint**: [Major story turning point]
 
 ### Act III - Resolution
+
 - **Climax**: [Final confrontation/challenge]
 - **Resolution**: [How conflicts are resolved]
 - **Character Arcs Completion**: [Character growth conclusion]
 - **Denouement**: [Final story beats]
 
 ## Supporting Elements
+
 ### Subplots
+
 - [Secondary story threads]
 - [Character relationship developments]
 
 ### World Building
+
 - [Key locations and their significance]
 - [Cultural/social elements]
 - [Rules and mythology]
 
 ## Integration with Gameplay
+
 - [How story supports gameplay mechanics]
 - [Interactive story moments]
 - [Player choice impact on narrative]
@@ -449,63 +486,79 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 # Character Profile Template
 
 ## Basic Information
+
 **Name**: [Character name]
 **Role**: [Protagonist/Antagonist/Supporting/NPC]
 **Age**: [Character age]
 **Occupation**: [What they do in the game world]
 
 ## Physical Description
+
 - **Appearance**: [Physical characteristics]
 - **Style**: [Clothing, accessories, distinctive features]
 - **Size/Build**: [Body type and stature]
 
 ## Personality
+
 ### Core Traits
+
 - [Primary personality trait 1]
-- [Primary personality trait 2] 
+- [Primary personality trait 2]
 - [Primary personality trait 3]
 
 ### Motivations
+
 - **Primary Goal**: [What drives this character]
 - **Secondary Goals**: [Other motivations]
 - **Fears**: [What they're afraid of]
 
 ### Quirks and Mannerisms
+
 - [Unique behaviors or speech patterns]
 - [Habits or recurring actions]
 
 ## Background
+
 ### History
+
 - [Important backstory elements]
 - [Formative experiences]
 - [Previous relationships]
 
 ### Skills and Abilities
+
 - [What they're good at]
 - [Special powers or talents]
 - [Weaknesses or limitations]
 
 ## Character Arc
+
 ### Starting Point
+
 [Where the character begins emotionally/mentally]
 
 ### Development Journey
+
 [How they change throughout the story]
 
 ### Resolution
+
 [Where they end up by the story's conclusion]
 
 ## Relationships
+
 - **Allies**: [Who they work with]
 - **Enemies**: [Who opposes them]
 - **Complex Relationships**: [Complicated dynamics]
 
 ## Dialogue Style
+
 - **Speech Patterns**: [How they talk]
 - **Vocabulary**: [Types of words they use]
 - **Sample Dialogue**: [Example lines]
 
 ## Visual Design Notes
+
 - **Art Style**: [How they should look visually]
 - **Color Palette**: [Associated colors]
 - **Expressions**: [Key emotional expressions needed]
@@ -515,60 +568,80 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 # Level Design Template
 
 ## Level Overview
+
 **Level Name**: [Level identifier]
 **Level Type**: [Tutorial/Story/Challenge/Boss/etc.]
 **Estimated Playtime**: [Expected completion time]
 **Difficulty**: [Easy/Medium/Hard]
 
 ## Objectives
+
 ### Primary Objective
+
 [Main goal players must achieve]
 
 ### Secondary Objectives
+
 - [Optional goal 1]
 - [Optional goal 2]
 
 ## Layout Design
+
 ### Starting Area
+
 [Where players begin and initial setup]
 
 ### Key Areas
+
 - **Area 1**: [Description and purpose]
 - **Area 2**: [Description and purpose]
 - **Area 3**: [Description and purpose]
 
 ### Critical Path
+
 [Main route players should take to complete level]
 
 ### Alternate Paths
+
 [Optional routes and exploration areas]
 
 ## Gameplay Elements
+
 ### Mechanics Introduced
+
 [New mechanics or systems introduced in this level]
 
 ### Challenges
+
 - [Challenge 1 and difficulty curve]
 - [Challenge 2 and difficulty curve]
 
 ### Rewards and Collectibles
+
 - [Items, secrets, or rewards available]
 
 ## Enemy/Obstacle Placement
+
 ### Enemy Types
+
 [Types of enemies and their positions]
 
 ### Difficulty Progression
+
 [How challenge increases throughout level]
 
 ## Visual and Audio Design
+
 ### Environmental Themes
+
 [Art style and atmosphere]
 
 ### Key Visual Landmarks
+
 [Important visual elements for navigation]
 
 ### Audio Cues
+
 [Sound design elements for gameplay support]
 ==================== END: templates#level-design-tmpl ====================
 
@@ -576,62 +649,82 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 # Quest Structure Template
 
 ## Quest Overview
+
 **Quest Name**: [Mission/Quest title]
 **Type**: [Main/Side/Daily/Event quest]
 **Prerequisites**: [Requirements to unlock]
 **Estimated Duration**: [Time to complete]
 
 ## Quest Objectives
+
 ### Primary Goal
+
 [Main objective player must complete]
 
 ### Step-by-Step Tasks
+
 1. [Task 1 description]
 2. [Task 2 description]
 3. [Task 3 description]
 
 ### Optional Objectives
+
 - [Bonus objective 1]
 - [Bonus objective 2]
 
 ## Quest Flow
+
 ### Starting Conditions
+
 [How the quest begins]
 
 ### Progression Checkpoints
+
 - **Checkpoint 1**: [Progress marker]
 - **Checkpoint 2**: [Progress marker]
 - **Checkpoint 3**: [Progress marker]
 
 ### Completion Conditions
+
 [What defines quest completion]
 
 ## Narrative Elements
+
 ### Quest Giver
+
 [Character who provides the quest]
 
 ### Story Context
+
 [Why this quest matters to the overall narrative]
 
 ### Dialogue
+
 [Key dialogue lines or conversation points]
 
 ## Rewards
+
 ### Primary Rewards
+
 - [Main reward for completion]
 - [XP/Currency amounts]
 
 ### Bonus Rewards
+
 - [Optional rewards for completing bonus objectives]
 
 ## Technical Requirements
+
 ### Assets Needed
+
 [Art, audio, or other assets required]
 
 ### Mechanics Used
+
 [Game systems this quest utilizes]
 
 ### Tracking Requirements
+
 [UI elements needed to track progress]
 ==================== END: templates#quest-structure-tmpl ====================
 
@@ -639,39 +732,50 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 # Dialogue Template
 
 ## Conversation Overview
+
 **Scene**: [Location/context of conversation]
 **Characters**: [Who is speaking]
 **Purpose**: [What this conversation achieves]
 **Mood**: [Tone/emotional context]
 
 ## Dialogue Structure
+
 ### Opening
+
 **[Character Name]**: "[Opening line]"
 **[Character Name]**: "[Response]"
 
 ### Main Conversation
+
 **[Character Name]**: "[Dialogue line]"
-- *[Stage direction or emotional note]*
+
+- _[Stage direction or emotional note]_
 
 **[Character Name]**: "[Response]"
-- *[Action or gesture]*
+
+- _[Action or gesture]_
 
 ### Player Choices (if applicable)
+
 **Player Options**:
+
 1. "[Option 1 text]" → [Consequence/reaction]
 2. "[Option 2 text]" → [Consequence/reaction]
 3. "[Option 3 text]" → [Consequence/reaction]
 
 ### Conclusion
+
 **[Character Name]**: "[Closing line]"
 
 ## Technical Notes
+
 - **Voice Acting**: [Direction for voice actors]
 - **Animation Cues**: [Character expressions/gestures]
 - **Camera Work**: [How scene should be framed]
 - **Audio Cues**: [Background music or sound effects]
 
 ## Localization Notes
+
 - [Cultural considerations for translation]
 - [Context explanations for translators]
 ==================== END: templates#dialogue-tmpl ====================
@@ -680,6 +784,7 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 # Narrative Consistency Checklist
 
 ## Story Structure
+
 - [ ] Three-act structure is clearly defined and followed
 - [ ] Plot points are logically connected and justified
 - [ ] Pacing maintains player engagement throughout
@@ -687,6 +792,7 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 - [ ] Subplots enhance rather than distract from main story
 
 ## Character Consistency
+
 - [ ] Character personalities remain consistent
 - [ ] Character motivations are clear and believable
 - [ ] Character dialogue matches established voice
@@ -694,6 +800,7 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 - [ ] Character relationships evolve logically
 
 ## World Building
+
 - [ ] Game world follows consistent internal rules
 - [ ] Geography and locations are logically connected
 - [ ] Cultural and social elements are coherent
@@ -701,6 +808,7 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 - [ ] Historical timeline is consistent and realistic
 
 ## Dialogue Quality
+
 - [ ] Dialogue sounds natural and character-appropriate
 - [ ] Conversations advance plot or develop character
 - [ ] Exposition is delivered naturally, not forced
@@ -708,6 +816,7 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 - [ ] Cultural and linguistic considerations are appropriate
 
 ## Continuity Verification
+
 - [ ] Plot events reference previous story elements appropriately
 - [ ] Character knowledge tracks with story progression
 - [ ] Timeline of events is internally consistent
@@ -715,6 +824,7 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 - [ ] Player choices are acknowledged in subsequent content
 
 ## Integration with Gameplay
+
 - [ ] Story enhances gameplay without interrupting flow
 - [ ] Narrative moments support game mechanics
 - [ ] Player agency is respected in story-critical moments
@@ -726,6 +836,7 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 # Character Development Checklist
 
 ## Character Foundation
+
 - [ ] Character has clear role and purpose in the story
 - [ ] Personality traits are distinct and memorable
 - [ ] Background and history support character motivation
@@ -733,6 +844,7 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 - [ ] Visual design reflects character personality
 
 ## Character Arc
+
 - [ ] Character has clear starting emotional/mental state
 - [ ] Growth path is planned and meaningful
 - [ ] Development occurs through gameplay and story events
@@ -740,6 +852,7 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 - [ ] Change feels earned through character experiences
 
 ## Personality and Voice
+
 - [ ] Dialogue style is unique and consistent
 - [ ] Speech patterns match character background
 - [ ] Vocabulary reflects character education/culture
@@ -747,6 +860,7 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 - [ ] Character voice remains consistent across all content
 
 ## Relationships and Interactions
+
 - [ ] Relationships with other characters are well-defined
 - [ ] Character dynamics create interesting conflicts or support
 - [ ] Interactions reveal character depth and complexity
@@ -754,6 +868,7 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 - [ ] Character serves specific function in ensemble
 
 ## Player Connection
+
 - [ ] Character is relatable or understandable to players
 - [ ] Motivations are clear and compelling
 - [ ] Character actions align with established personality
@@ -761,6 +876,7 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 - [ ] Character contributes meaningfully to player experience
 
 ## Technical Implementation
+
 - [ ] Character requirements are technically feasible
 - [ ] Visual design is clear and distinctive
 - [ ] Animation needs support character personality
@@ -772,6 +888,7 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 # Level Flow Checklist
 
 ## Level Structure
+
 - [ ] Level has clear beginning, middle, and end
 - [ ] Objectives are communicated clearly to player
 - [ ] Critical path is intuitive and well-marked
@@ -779,6 +896,7 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 - [ ] Level length is appropriate for gameplay session
 
 ## Navigation and Layout
+
 - [ ] Player movement flows naturally through space
 - [ ] Visual landmarks help with orientation
 - [ ] Dead ends and backtracking are minimized
@@ -786,6 +904,7 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 - [ ] Level geometry supports intended gameplay
 
 ## Pacing and Progression
+
 - [ ] Difficulty ramps up gradually and appropriately
 - [ ] Rest periods balance intense action sequences
 - [ ] New mechanics are introduced with adequate practice
@@ -793,6 +912,7 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 - [ ] Climactic moments feel earned and satisfying
 
 ## Gameplay Integration
+
 - [ ] Level design supports core game mechanics
 - [ ] Environmental storytelling enhances narrative
 - [ ] Interactive elements are placed thoughtfully
@@ -800,6 +920,7 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 - [ ] Level contributes to overall game progression
 
 ## Technical Performance
+
 - [ ] Level runs smoothly on target platforms
 - [ ] Load times are reasonable for level size
 - [ ] Visual complexity is optimized appropriately
@@ -807,6 +928,7 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 - [ ] Performance doesn't degrade during intense moments
 
 ## Player Testing
+
 - [ ] New players can navigate without excessive confusion
 - [ ] Experienced players find appropriate challenge
 - [ ] Common stuck points have been identified and addressed
@@ -820,11 +942,13 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 ## Story Structure Principles
 
 ### Three-Act Framework
+
 - **Act I (25%)**: Setup, character introduction, inciting incident
 - **Act II (50%)**: Rising action, character development, complications
 - **Act III (25%)**: Climax, resolution, character arc completion
 
 ### Pacing Guidelines
+
 - **Hook Placement**: Compelling moment within first 2-3 minutes
 - **Story Beats**: Major plot points every 15-20 minutes
 - **Tension Curves**: Build, release, escalate pattern
@@ -833,12 +957,14 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 ## Character Development Standards
 
 ### Character Arc Requirements
+
 - **Clear Starting Point**: Establish character's initial state
 - **Growth Catalyst**: Events that drive character change
 - **Internal Conflict**: Personal struggles that humanize characters
 - **Resolution**: Satisfying completion of character journey
 
 ### Dialogue Writing Guidelines
+
 - **Character Voice**: Each character has distinct speaking patterns
 - **Subtext**: Meaning beyond literal words
 - **Conflict Integration**: Dialogue advances plot and reveals character
@@ -847,12 +973,14 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 ## World Building Consistency
 
 ### Lore Documentation
+
 - **Rule Systems**: Consistent logic for how the world works
 - **Historical Timeline**: Events that shaped the current world
 - **Cultural Details**: Beliefs, customs, social structures
 - **Geographic Consistency**: Logical placement of locations
 
 ### Environmental Storytelling
+
 - **Visual Narrative**: Environments tell stories without words
 - **Props and Details**: Objects that hint at larger stories
 - **Atmospheric Consistency**: Mood supports narrative themes
@@ -861,12 +989,14 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 ## Integration with Gameplay
 
 ### Narrative-Gameplay Harmony
+
 - **Story Supports Mechanics**: Narrative justifies game systems
 - **Player Agency**: Story allows for meaningful player choices
 - **Seamless Transitions**: Smooth flow between story and gameplay
 - **Optional Depth**: Core story accessible, detailed lore optional
 
 ### Player Choice Integration
+
 - **Meaningful Consequences**: Choices affect story outcome
 - **Character Consistency**: Player choices align with character personality
 - **Branch Management**: Story branches remain manageable
@@ -875,12 +1005,14 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 ## Quality Standards
 
 ### Writing Quality
+
 - **Clear Communication**: Story is easily understood
 - **Emotional Resonance**: Story evokes appropriate feelings
 - **Cultural Sensitivity**: Respectful representation of diverse cultures
 - **Age Appropriateness**: Content matches target audience rating
 
 ### Technical Implementation
+
 - **Text Length**: Dialogue fits interface constraints
 - **Localization Ready**: Text structure supports translation
 - **Asset Requirements**: Story needs align with art/audio resources
@@ -893,6 +1025,7 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 ## Narrative Structure Techniques
 
 ### The Hero's Journey
+
 - **Ordinary World**: Establish character's normal life
 - **Call to Adventure**: Present the central challenge
 - **Crossing the Threshold**: Commitment to the journey
@@ -900,6 +1033,7 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 - **Return Transformed**: Character brings new wisdom
 
 ### Three-Act Structure Variations
+
 - **Classic Three-Act**: Setup, confrontation, resolution
 - **Four-Act Structure**: Add midpoint crisis as act break
 - **Seven-Point Story**: Hook, plot turn, pinch point, midpoint, plot turn, pinch point, resolution
@@ -908,12 +1042,14 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 ## Character Development Techniques
 
 ### Character Arc Types
+
 - **Positive Arc**: Character overcomes flaw and grows
 - **Negative Arc**: Character succumbs to weakness and falls
 - **Flat Arc**: Character maintains values while changing world
 - **Impact Arc**: Character affects others more than changing themselves
 
 ### Character Voice Development
+
 - **Dialogue Tags**: Unique speech patterns and vocabulary
 - **Subtext Layers**: What characters don't say directly
 - **Emotional Subtext**: Hidden feelings beneath surface
@@ -922,12 +1058,14 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 ## Engagement Techniques
 
 ### Emotional Hooks
+
 - **Empathy Creation**: Make players care about characters
 - **Emotional Stakes**: What characters stand to lose
 - **Emotional Payoffs**: Satisfying resolution of emotional tension
 - **Vulnerable Moments**: Characters showing authentic weakness
 
 ### Mystery and Revelation
+
 - **Foreshadowing**: Plant clues for future revelations
 - **Red Herrings**: Misdirect attention from real solutions
 - **Progressive Disclosure**: Reveal information strategically
@@ -936,12 +1074,14 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 ## Interactive Storytelling
 
 ### Player Choice Integration
+
 - **Branching Narratives**: Multiple story paths based on choices
 - **Consequential Choices**: Decisions that meaningfully impact story
 - **Moral Dilemmas**: No clearly right or wrong answers
 - **Character Customization**: Player expression through character creation
 
 ### Environmental Storytelling
+
 - **Show Don't Tell**: Convey information through visuals
 - **Narrative Props**: Objects that tell stories
 - **Atmospheric Storytelling**: Mood and setting convey meaning
@@ -950,12 +1090,14 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 ## Genre-Specific Techniques
 
 ### Fantasy Storytelling
+
 - **World Building**: Consistent rules for magic and society
 - **Mythic Resonance**: Archetypal characters and situations
 - **Quest Structure**: Clear goals and obstacles
 - **Chosen One Variation**: Fresh takes on classic tropes
 
 ### Sci-Fi Storytelling
+
 - **Technological Integration**: How technology affects humanity
 - **Future Speculation**: Logical extrapolation from current trends
 - **Moral Questions**: Ethics of technological advancement
@@ -964,12 +1106,14 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 ## Pacing and Rhythm
 
 ### Scene Structure
+
 - **Scene Goals**: Each scene must advance plot or character
 - **Conflict Integration**: Every scene needs tension or conflict
 - **Scene Transitions**: Smooth flow between story moments
 - **Cliffhangers**: End scenes with unresolved tension
 
 ### Information Management
+
 - **Exposition Timing**: When to reveal background information
 - **Information Density**: Balance detail with pacing
 - **Repetition Strategy**: Reinforce important information naturally
@@ -982,6 +1126,7 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 ## Core Design Philosophy
 
 ### Player-Centric Design
+
 - Design levels that serve the player's experience first
 - Create clear, intuitive navigation paths
 - Respect player time with efficient layouts
@@ -989,6 +1134,7 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 - Balance challenge with accessibility
 
 ### Gameplay-Driven Layouts
+
 - Level geometry supports core game mechanics
 - Space design encourages intended player behaviors
 - Environmental elements enhance rather than hinder gameplay
@@ -997,6 +1143,7 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 ## Spatial Design Principles
 
 ### Flow and Navigation
+
 - **Golden Path**: Clear primary route through level
 - **Breadcrumbing**: Visual guides that direct player movement
 - **Landmark Design**: Memorable features that aid navigation
@@ -1004,6 +1151,7 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 - **Circulation**: Smooth traffic flow in multiplayer spaces
 
 ### Scale and Proportion
+
 - **Human Scale**: Spaces feel appropriately sized for characters
 - **Gameplay Scale**: Distances match movement and action timing
 - **Visual Hierarchy**: Important elements are appropriately prominent
@@ -1012,12 +1160,14 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 ## Challenge Design
 
 ### Difficulty Progression
+
 - **Skill Introduction**: New mechanics taught in safe environments
 - **Skill Development**: Repeated practice with gradual complexity
 - **Skill Testing**: Challenges that require mastery demonstration
 - **Skill Combination**: Advanced challenges combining multiple skills
 
 ### Failure and Recovery
+
 - **Readable Failure**: Players understand why they failed
 - **Quick Recovery**: Minimize time between failure and retry
 - **Progressive Failure**: Multiple chances before complete restart
@@ -1026,12 +1176,14 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 ## Environmental Storytelling
 
 ### Visual Narrative
+
 - **Environmental Context**: Spaces tell stories about their inhabitants
 - **Historical Layers**: Evidence of past events in the environment
 - **Atmospheric Consistency**: Mood matches narrative intent
 - **Interactive Storytelling**: Players discover story through exploration
 
 ### World Building Through Space
+
 - **Cultural Authenticity**: Architecture reflects fictional cultures
 - **Functional Believability**: Spaces feel like they have purpose
 - **Living Worlds**: Evidence of ongoing life and activity
@@ -1040,12 +1192,14 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 ## Technical Considerations
 
 ### Performance Optimization
+
 - **LOD Planning**: Level of detail strategies for complex geometry
 - **Occlusion Design**: Natural breaks that help rendering optimization
 - **Asset Reuse**: Efficient use of modular components
 - **Memory Management**: Consideration of streaming and loading
 
 ### Platform Adaptation
+
 - **Input Method Optimization**: Level design suits control schemes
 - **Screen Size Considerations**: Important elements visible on all target screens
 - **Performance Scaling**: Design works across hardware specifications
@@ -1054,12 +1208,14 @@ Design compelling quests and missions that provide meaningful gameplay experienc
 ## Quality Assurance
 
 ### Testing Protocols
+
 - **Player Path Analysis**: Verify intended routes work as designed
 - **Edge Case Testing**: Handle unexpected player behaviors gracefully
 - **Performance Validation**: Ensure technical requirements are met
 - **Accessibility Verification**: Confirm inclusive design implementation
 
 ### Iteration Guidelines
+
 - **Feedback Integration**: Systematic approach to incorporating playtester feedback
 - **Version Control**: Track changes and their rationale
 - **Metrics Analysis**: Use data to inform design decisions

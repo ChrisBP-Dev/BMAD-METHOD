@@ -235,6 +235,11 @@ class Installer {
           ignore: ["**/.git/**", "**/node_modules/**"],
         })
         .map((file) => path.join(".bmad-core", file));
+
+      // Generate project-level technical-preferences.md
+      spinner.text = "Creating project technical preferences...";
+      await this.createProjectTechnicalPreferences(installDir, config);
+      files.push("docs/technical-preferences.md");
     } else if (config.installType === "single-agent") {
       // Single agent installation
       spinner.text = `Installing ${config.agent} agent...`;
@@ -968,6 +973,63 @@ class Installer {
     }
 
     return null;
+  }
+
+  async createProjectTechnicalPreferences(installDir, config) {
+    // Ensure docs directory exists
+    const docsDir = path.join(installDir, "docs");
+    await fileManager.ensureDirectory(docsDir);
+    
+    const destPath = path.join(docsDir, "technical-preferences.md");
+    
+    // If user selected a specific template, use it
+    if (config.technicalPreferencesTemplate && config.technicalPreferencesTemplate !== 'current') {
+      const templatePath = path.join(
+        configLoader.getBmadCorePath(), 
+        "templates", 
+        `technical-preferences-${config.technicalPreferencesTemplate}-tmpl.md`
+      );
+      
+      if (await fileManager.pathExists(templatePath)) {
+        await fileManager.copyFile(templatePath, destPath);
+        return;
+      }
+    }
+    
+    // Fallback: Try to copy from .bmad-core/data/
+    const sourcePath = path.join(installDir, ".bmad-core", "data", "technical-preferences.md");
+    if (await fileManager.pathExists(sourcePath)) {
+      await fileManager.copyFile(sourcePath, destPath);
+      return;
+    }
+    
+    // Final fallback: create blank template
+    const defaultContent = `# Technical Preferences
+
+## Project-Specific Technical Preferences
+
+Add your preferred technologies, patterns, and standards here.
+
+This file will be automatically loaded by BMAD agents to ensure consistent technical decisions.
+
+## Stack Preferences
+
+### Languages
+- [Add your preferred languages]
+
+### Frameworks
+- [Add your preferred frameworks]
+
+### Tools
+- [Add your preferred tools]
+
+## Patterns to Follow
+- [Add your preferred patterns]
+
+## Technologies to Avoid
+- [Add technologies to avoid]
+`;
+    await fileManager.writeFile(destPath, defaultContent);
   }
 }
 

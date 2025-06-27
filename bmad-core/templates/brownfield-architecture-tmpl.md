@@ -542,3 +542,25 @@ Present risk assessment and apply `tasks#advanced-elicitation` protocol]]
 - Key technical decisions based on real project constraints
 - Existing system compatibility requirements with specific verification steps
 - Clear sequencing of implementation to minimize risk to existing functionality]]
+
+## CRITICAL: File Structure for v4.14.0 Compatibility
+
+After creating this document, you MUST create these specific files in docs/architecture/:
+
+### Required Files (Auto-searched by agents):
+- `coding-standards.md` - Development standards and patterns
+- `tech-stack.md` - Technology stack and versions  
+- `rest-api-spec.md` - API specifications
+- `data-models.md` - Data models and schemas
+- `source-tree.md` - Project structure
+- `unified-project-structure.md` - Unified structure
+- `frontend-architecture.md` - Frontend architecture
+- `backend-architecture.md` - Backend architecture
+- `components.md` - Component specifications
+- `core-workflows.md` - Core business workflows
+
+### Instructions:
+1. Complete this main architecture document
+2. Use the shard-doc task to fragment into docs/architecture/
+3. Manually create any missing required files using content from this document
+4. Ensure all agents can find the files they expect

@@ -235,20 +235,25 @@ The LLM will:
 # Game Mechanics Design Task
 
 ## Objective
+
 Design core gameplay mechanics that create engaging, balanced, and intuitive player experiences.
 
 ## Process
+
 1. **Analyze Game Vision**
+
    - Review game concept and target audience
    - Identify key gameplay pillars
    - Define success metrics for mechanics
 
 2. **Design Core Mechanics**
+
    - Define primary player actions and interactions
    - Create mechanic specifications with clear rules
    - Design feedback systems for player actions
 
 3. **Create System Interactions**
+
    - Map how mechanics interact with each other
    - Identify emergent gameplay opportunities
    - Design progression and complexity curves
@@ -259,12 +264,14 @@ Design core gameplay mechanics that create engaging, balanced, and intuitive pla
    - Iterate based on feedback and data
 
 ## Deliverables
+
 - Core mechanics specification document
 - Interaction matrix between mechanics
 - Balance calculations and formulas
 - Playtesting protocol and metrics
 
 ## Success Criteria
+
 - Mechanics are intuitive and learnable
 - Systems create meaningful player choices
 - Balance promotes fair and engaging gameplay
@@ -275,22 +282,27 @@ Design core gameplay mechanics that create engaging, balanced, and intuitive pla
 # Gameplay Loops Creation Task
 
 ## Objective
+
 Design engaging gameplay loops that maintain player interest and motivation over time.
 
 ## Process
+
 1. **Define Loop Types**
+
    - Core loop (second-to-second gameplay)
    - Meta loop (session-to-session progression)
    - Social loop (player-to-player interactions)
    - Monetization loop (free-to-play considerations)
 
 2. **Design Core Loop**
+
    - Map primary player actions and responses
    - Create immediate feedback mechanisms
    - Establish reward schedules and timing
    - Design difficulty and pacing curves
 
 3. **Create Meta Progression**
+
    - Design long-term progression systems
    - Create meaningful upgrade paths
    - Establish collection and achievement goals
@@ -303,12 +315,14 @@ Design engaging gameplay loops that maintain player interest and motivation over
    - Balance short and long-term satisfaction
 
 ## Deliverables
+
 - Gameplay loop documentation with timing diagrams
 - Progression system specifications
 - Reward schedule and balancing formulas
 - Player engagement metrics and KPIs
 
 ## Success Criteria
+
 - Loops create compelling moment-to-moment gameplay
 - Meta progression provides long-term motivation
 - Player retention meets target benchmarks
@@ -319,22 +333,27 @@ Design engaging gameplay loops that maintain player interest and motivation over
 # Progression Systems Design Task
 
 ## Objective
+
 Create compelling progression systems that provide meaningful advancement and long-term player engagement.
 
 ## Process
+
 1. **Define Progression Types**
+
    - Character/player level progression
    - Skill trees and ability unlocks
    - Equipment and item progression
    - Collection and achievement systems
 
 2. **Design Progression Curves**
+
    - Calculate XP requirements and timing
    - Balance effort vs. reward ratios
    - Create milestone and breakthrough moments
    - Design catch-up and retention mechanics
 
 3. **Create Unlock Systems**
+
    - Design meaningful upgrade choices
    - Create branching progression paths
    - Establish gating and prerequisite systems
@@ -347,12 +366,14 @@ Create compelling progression systems that provide meaningful advancement and lo
    - Validate monetization integration
 
 ## Deliverables
+
 - Progression system specifications
 - Mathematical progression models
 - Unlock trees and dependency maps
 - Player journey and pacing documentation
 
 ## Success Criteria
+
 - Progression feels rewarding and achievable
 - System supports diverse play styles
 - Pacing maintains long-term engagement
@@ -585,51 +606,64 @@ The completed story should be saved as `stories/story-{id}-{feature-name}.md` an
 # Game Mechanics Template
 
 ## Mechanic Overview
+
 **Mechanic Name**: [Name of the game mechanic]
 **Category**: [Core/Secondary/Support mechanic]
 **Priority**: [High/Medium/Low]
 
 ## Description
+
 [Brief description of what this mechanic does and why it exists]
 
 ## Player Actions
+
 - **Primary Action**: [Main action the player performs]
 - **Secondary Actions**: [Additional related actions]
 - **Input Requirements**: [Controls and input needed]
 
 ## System Rules
+
 ### Core Rules
+
 - [Rule 1]
 - [Rule 2]
 - [Rule 3]
 
 ### Edge Cases
+
 - [Edge case 1 and handling]
 - [Edge case 2 and handling]
 
 ## Feedback Systems
+
 - **Visual Feedback**: [How the game shows the mechanic's effect]
 - **Audio Feedback**: [Sound effects and audio cues]
 - **Haptic Feedback**: [Controller vibration, if applicable]
 
 ## Balancing Parameters
+
 - **Power Level**: [Numeric values for balancing]
 - **Cooldowns**: [Time restrictions]
 - **Resource Costs**: [What the player spends to use this]
 
 ## Interactions
+
 ### Synergies
+
 - [How this mechanic works well with other mechanics]
 
 ### Conflicts
+
 - [Potential conflicts with other mechanics]
 
 ## Implementation Notes
+
 - [Technical considerations]
 - [Performance requirements]
 - [Platform-specific adaptations]
 
 ## Testing Criteria
+
 - [ ] Mechanic is intuitive and learnable
 - [ ] Feedback is clear and immediate
 - [ ] Balancing feels fair and engaging
@@ -640,33 +674,41 @@ The completed story should be saved as `stories/story-{id}-{feature-name}.md` an
 # Gameplay Loops Template
 
 ## Loop Overview
+
 **Loop Type**: [Core/Meta/Social/Monetization]
 **Duration**: [Time length of one complete loop]
 **Frequency**: [How often players engage with this loop]
 
 ## Loop Structure
+
 ### Entry Point
+
 [How players enter this loop]
 
 ### Core Actions
+
 1. [Action 1]
-2. [Action 2] 
+2. [Action 2]
 3. [Action 3]
 
 ### Feedback & Rewards
+
 - **Immediate Feedback**: [Instant response to actions]
 - **Progress Indicators**: [How players see advancement]
 - **Rewards**: [What players receive]
 
 ### Exit/Transition
+
 [How the loop concludes or transitions to next iteration]
 
 ## Engagement Mechanics
+
 - **Challenge**: [What makes it engaging]
 - **Choice**: [Meaningful decisions within the loop]
 - **Progression**: [How players advance]
 
 ## Metrics & KPIs
+
 - **Completion Rate**: [Target percentage]
 - **Time to Complete**: [Expected duration]
 - **Retention Impact**: [Effect on player retention]
@@ -676,35 +718,44 @@ The completed story should be saved as `stories/story-{id}-{feature-name}.md` an
 # Progression System Template
 
 ## System Overview
+
 **System Name**: [Name of progression system]
 **Type**: [XP/Skill Tree/Unlocks/Collection/etc.]
 **Scope**: [Character/Account/Seasonal/etc.]
 
 ## Progression Structure
+
 ### Levels/Stages
+
 - **Total Levels**: [Maximum progression level]
 - **Level Requirements**: [XP or points needed per level]
 - **Progression Curve**: [Linear/Exponential/Logarithmic]
 
 ### Rewards Per Level
+
 - **Level 1-10**: [Early game rewards]
 - **Level 11-25**: [Mid game rewards]
 - **Level 26+**: [End game rewards]
 
 ## Earning Mechanics
+
 ### Primary Sources
+
 - [Main way to earn progression points]
 - [Secondary earning methods]
 
 ### Bonus Multipliers
+
 - [Special events or conditions that boost progression]
 
 ## Unlock Gates
+
 - **Prerequisites**: [What's required to access this system]
 - **Branching Paths**: [Different progression routes]
 - **Lock/Unlock Conditions**: [Special requirements]
 
 ## Balance Parameters
+
 - **Time to Max Level**: [Expected hours to complete]
 - **Daily/Weekly Caps**: [Limits on progression speed]
 - **Catch-up Mechanics**: [Help for new/returning players]
@@ -714,41 +765,51 @@ The completed story should be saved as `stories/story-{id}-{feature-name}.md` an
 # Game Controls Template
 
 ## Control Scheme Overview
+
 **Platform**: [Mobile/PC/Console]
 **Control Type**: [Touch/Keyboard+Mouse/Gamepad]
 **Complexity Level**: [Simple/Moderate/Complex]
 
 ## Primary Controls
+
 ### Movement
+
 - **Action**: [How player moves]
 - **Input**: [Specific input method]
 - **Sensitivity**: [Responsiveness settings]
 
 ### Primary Actions
+
 - **Action 1**: [Input] - [Description]
 - **Action 2**: [Input] - [Description]
 - **Action 3**: [Input] - [Description]
 
 ### Secondary Actions
+
 - **Menu/Pause**: [Input method]
 - **Camera Control**: [How player controls view]
 - **Inventory/Items**: [Item management controls]
 
 ## Accessibility Features
+
 - **Customizable Controls**: [What can be remapped]
 - **Difficulty Options**: [Control assists available]
 - **Visual/Audio Aids**: [Accessibility supports]
 
 ## Platform-Specific Adaptations
+
 ### Mobile Adaptations
+
 - [Touch control specifics]
 - [Screen layout considerations]
 
 ### PC Adaptations
+
 - [Keyboard shortcuts]
 - [Mouse interactions]
 
 ## Testing Criteria
+
 - [ ] Controls are intuitive and responsive
 - [ ] All actions are accessible within comfortable reach
 - [ ] Control scheme works across all target platforms
@@ -1035,6 +1096,7 @@ class {{GameClassName}} extends {{BaseGameClass}} {
 # Game Design Checklist
 
 ## Core Mechanics Verification
+
 - [ ] Primary gameplay mechanics are clearly defined
 - [ ] Mechanics are intuitive and easy to learn
 - [ ] Feedback systems provide clear response to player actions
@@ -1042,6 +1104,7 @@ class {{GameClassName}} extends {{BaseGameClass}} {
 - [ ] Difficulty curve is balanced and progressive
 
 ## Player Experience
+
 - [ ] Game provides clear objectives and goals
 - [ ] Player motivation is maintained throughout experience
 - [ ] Progression systems feel rewarding and meaningful
@@ -1049,6 +1112,7 @@ class {{GameClassName}} extends {{BaseGameClass}} {
 - [ ] Accessibility features are implemented appropriately
 
 ## System Balance
+
 - [ ] Game mechanics interact harmoniously
 - [ ] No single strategy dominates all others
 - [ ] Risk/reward ratios are balanced and fair
@@ -1056,6 +1120,7 @@ class {{GameClassName}} extends {{BaseGameClass}} {
 - [ ] Economic systems (if any) are sustainable
 
 ## Innovation and Fun Factor
+
 - [ ] Game offers unique or memorable experiences
 - [ ] Core gameplay loop is engaging and replayable
 - [ ] Game provides meaningful player choices
@@ -1063,6 +1128,7 @@ class {{GameClassName}} extends {{BaseGameClass}} {
 - [ ] Game stands out in its genre or market
 
 ## Technical Implementation
+
 - [ ] Design is technically feasible within constraints
 - [ ] Performance requirements are realistic
 - [ ] Platform-specific considerations are addressed
@@ -1070,6 +1136,7 @@ class {{GameClassName}} extends {{BaseGameClass}} {
 - [ ] Development timeline aligns with design complexity
 
 ## Documentation Quality
+
 - [ ] Design documents are complete and clear
 - [ ] Specifications are detailed enough for implementation
 - [ ] Visual aids and diagrams support written descriptions
@@ -1081,6 +1148,7 @@ class {{GameClassName}} extends {{BaseGameClass}} {
 # Balance Verification Checklist
 
 ## Gameplay Balance
+
 - [ ] No single strategy or mechanic completely dominates
 - [ ] Multiple viable approaches exist for achieving goals
 - [ ] Player choices have meaningful consequences
@@ -1088,6 +1156,7 @@ class {{GameClassName}} extends {{BaseGameClass}} {
 - [ ] Skill ceiling allows for player improvement over time
 
 ## Progression Balance
+
 - [ ] Experience and leveling curves feel appropriate
 - [ ] Unlock timing matches player readiness
 - [ ] Power increases feel meaningful but not overwhelming
@@ -1095,6 +1164,7 @@ class {{GameClassName}} extends {{BaseGameClass}} {
 - [ ] End-game content maintains engagement
 
 ## Difficulty Balance
+
 - [ ] Learning curve is smooth and gradual
 - [ ] Challenge escalation matches player skill development
 - [ ] Failure states are educational, not purely punitive
@@ -1102,6 +1172,7 @@ class {{GameClassName}} extends {{BaseGameClass}} {
 - [ ] Optional challenges provide appropriate rewards
 
 ## Economic Balance (if applicable)
+
 - [ ] Resource generation and consumption are sustainable
 - [ ] Currency systems prevent excessive inflation/deflation
 - [ ] Premium content offers fair value proposition
@@ -1109,6 +1180,7 @@ class {{GameClassName}} extends {{BaseGameClass}} {
 - [ ] Economic incentives align with intended player behavior
 
 ## Competitive Balance (if applicable)
+
 - [ ] Character/class options are viably diverse
 - [ ] Map or level design doesn't favor specific strategies
 - [ ] Random elements add variety without undermining skill
@@ -1116,6 +1188,7 @@ class {{GameClassName}} extends {{BaseGameClass}} {
 - [ ] Anti-griefing measures are effective
 
 ## Testing Validation
+
 - [ ] Balance has been tested with diverse player skill levels
 - [ ] Analytics support balance decisions with data
 - [ ] Community feedback has been incorporated
@@ -1127,6 +1200,7 @@ class {{GameClassName}} extends {{BaseGameClass}} {
 # Accessibility Checklist
 
 ## Visual Accessibility
+
 - [ ] Color-blind friendly color palettes used
 - [ ] Sufficient color contrast for text readability
 - [ ] Text size can be adjusted or is appropriately large
@@ -1134,6 +1208,7 @@ class {{GameClassName}} extends {{BaseGameClass}} {
 - [ ] Visual indicators accompany audio cues
 
 ## Motor Accessibility
+
 - [ ] Controls can be remapped or customized
 - [ ] Single-handed play options available where appropriate
 - [ ] Input timing requirements are reasonable
@@ -1141,6 +1216,7 @@ class {{GameClassName}} extends {{BaseGameClass}} {
 - [ ] Gesture complexity is appropriate for target audience
 
 ## Cognitive Accessibility
+
 - [ ] Clear and consistent interface design
 - [ ] Complexity can be reduced through options
 - [ ] Instructions and tutorials are clear and repeatable
@@ -1148,6 +1224,7 @@ class {{GameClassName}} extends {{BaseGameClass}} {
 - [ ] Progress can be saved frequently
 
 ## Hearing Accessibility
+
 - [ ] Visual indicators for important audio cues
 - [ ] Subtitles or captions available for speech
 - [ ] Visual representation of directional audio
@@ -1155,6 +1232,7 @@ class {{GameClassName}} extends {{BaseGameClass}} {
 - [ ] Alternative feedback for audio-based mechanics
 
 ## Difficulty and Assistance
+
 - [ ] Multiple difficulty options available
 - [ ] Assist modes for challenging sections
 - [ ] Skip options for non-essential content
@@ -1162,6 +1240,7 @@ class {{GameClassName}} extends {{BaseGameClass}} {
 - [ ] Clear communication of accessibility features
 
 ## Platform-Specific Accessibility
+
 - [ ] Device accessibility features are supported
 - [ ] Platform accessibility guidelines are followed
 - [ ] Touch accessibility for mobile platforms
@@ -1353,14 +1432,17 @@ Use this format:
 **Pass Rate:** X% (Y out of Z criteria met)
 
 **Critical Issues:**
+
 - Issue 1: Description and recommendation
 - Issue 2: Description and recommendation
 
 **Recommendations:**
+
 1. Specific action to improve story quality
 2. Another specific action
 
 **Next Steps:**
+
 - What needs to be done before story can be approved]]
 
 ## Success Criteria
@@ -1388,6 +1470,7 @@ Use this format:
 ## Core Design Principles
 
 ### Player-First Design
+
 - Always prioritize player experience and enjoyment
 - Design mechanics that empower rather than frustrate players
 - Respect player time and provide meaningful progression
@@ -1395,6 +1478,7 @@ Use this format:
 - Ensure player agency in meaningful choices
 
 ### Accessibility and Inclusion
+
 - Design for diverse abilities and play styles
 - Provide customization options for different needs
 - Use inclusive language and representation
@@ -1402,6 +1486,7 @@ Use this format:
 - Test with diverse user groups
 
 ### Fun Factor Fundamentals
+
 - Create compelling core gameplay loops
 - Balance challenge with achievement satisfaction
 - Provide variety to prevent monotony
@@ -1411,6 +1496,7 @@ Use this format:
 ## Mechanics Design Standards
 
 ### Core Mechanics
+
 - Keep primary mechanics simple and intuitive
 - Layer complexity gradually through progression
 - Ensure mechanics are responsive and predictable
@@ -1418,6 +1504,7 @@ Use this format:
 - Design for emergent gameplay possibilities
 
 ### Control and Input
+
 - Minimize input complexity for core actions
 - Provide consistent control schemes across features
 - Support customization for player preferences
@@ -1425,6 +1512,7 @@ Use this format:
 - Consider platform-specific input methods
 
 ### Feedback Systems
+
 - Provide immediate feedback for all player actions
 - Use multiple feedback channels (visual, audio, haptic)
 - Scale feedback intensity with action importance
@@ -1434,6 +1522,7 @@ Use this format:
 ## Balance and Progression
 
 ### Difficulty Curves
+
 - Start with accessible entry points
 - Increase challenge gradually and logically
 - Provide optional challenges for advanced players
@@ -1441,6 +1530,7 @@ Use this format:
 - Test difficulty with diverse skill levels
 
 ### Progression Systems
+
 - Make advancement feel meaningful and earned
 - Avoid pay-to-win scenarios in monetized content
 - Provide multiple progression paths when possible
@@ -1448,6 +1538,7 @@ Use this format:
 - Create milestone moments for major achievements
 
 ### Economy and Resources
+
 - Design sustainable resource generation and consumption
 - Prevent exploitation through careful economic modeling
 - Provide meaningful spending choices for players
@@ -1457,6 +1548,7 @@ Use this format:
 ## Documentation Standards
 
 ### Design Documents
+
 - Write clearly and concisely for diverse audiences
 - Include visual aids and diagrams when helpful
 - Specify measurable success criteria
@@ -1464,6 +1556,7 @@ Use this format:
 - Maintain version control and change tracking
 
 ### Iterative Design Process
+
 - Plan for playtesting and feedback incorporation
 - Document lessons learned from iteration cycles
 - Maintain flexibility for design evolution
@@ -1477,11 +1570,13 @@ Use this format:
 ## Motivation Theory Application
 
 ### Self-Determination Theory
+
 - **Autonomy**: Players need meaningful choices and control
 - **Competence**: Players must feel capable and growing
 - **Relatedness**: Social connection enhances engagement
 
 ### Flow State Design
+
 - Balance challenge with player skill level
 - Provide clear goals and immediate feedback
 - Minimize distractions during core gameplay
@@ -1490,18 +1585,21 @@ Use this format:
 ## Engagement Psychology
 
 ### Variable Ratio Reinforcement
+
 - Use unpredictable reward timing for maximum engagement
 - Balance guaranteed and surprise rewards
 - Create anticipation through near-miss experiences
 - Avoid predictable patterns that reduce excitement
 
 ### Progress Psychology
+
 - Break large goals into smaller, achievable milestones
 - Use progress bars and completion indicators
 - Celebrate achievements with appropriate fanfare
 - Provide multiple progression tracks for different interests
 
 ### Loss Aversion
+
 - Frame setbacks as temporary rather than permanent
 - Provide recovery mechanisms for major losses
 - Use "almost won" messaging instead of "lost"
@@ -1510,12 +1608,14 @@ Use this format:
 ## Social Psychology
 
 ### Social Proof
+
 - Show other players' achievements and activities
 - Use leaderboards and comparison metrics thoughtfully
 - Create opportunities for positive social interaction
 - Highlight community accomplishments
 
 ### Reciprocity Principle
+
 - Offer gifts and bonuses to encourage continued play
 - Create systems where players can help each other
 - Reward players for positive community behavior
@@ -1524,12 +1624,14 @@ Use this format:
 ## Cognitive Psychology
 
 ### Cognitive Load Management
+
 - Limit number of simultaneous decisions required
 - Use familiar patterns and conventions
 - Provide clear information hierarchy
 - Minimize irrelevant distractions during critical moments
 
 ### Memory and Recognition
+
 - Use consistent visual and audio cues
 - Create memorable characters and moments
 - Design distinctive landmarks and waypoints
@@ -1538,12 +1640,14 @@ Use this format:
 ## Behavioral Design
 
 ### Habit Formation
+
 - Create consistent daily engagement opportunities
 - Use habit stacking to link new behaviors to existing ones
 - Provide regular, predictable reward schedules
 - Make re-engagement as frictionless as possible
 
 ### Goal Setting Psychology
+
 - Help players set appropriate challenge levels
 - Provide both short-term and long-term objectives
 - Allow players to create personal goals
@@ -1552,6 +1656,7 @@ Use this format:
 ## Ethical Considerations
 
 ### Respectful Design
+
 - Avoid manipulative dark patterns
 - Respect player time and financial limitations
 - Provide transparent information about game mechanics
@@ -1564,12 +1669,14 @@ Use this format:
 ## Progression Timing Benchmarks
 
 ### Session Length Targets
+
 - **Mobile Games**: 3-7 minutes average session
 - **PC Games**: 15-45 minutes average session
 - **Console Games**: 30-90 minutes average session
 - **Break Points**: Natural stopping points every 5-10 minutes
 
 ### Progression Rate Standards
+
 - **New Player Progression**: Visible advancement every 1-2 minutes
 - **Mid-Game Progression**: Meaningful progress every 10-15 minutes
 - **End-Game Progression**: Substantial advancement every 1-2 hours
@@ -1578,12 +1685,14 @@ Use this format:
 ## Economic Balance Metrics
 
 ### Resource Flow Rates
+
 - **Income vs Expenditure**: 1.1-1.3 generation ratio for sustainability
 - **Sink vs Source**: Multiple spending options for every income stream
 - **Inflation Prevention**: Regular resource sinks to prevent accumulation
 - **New Player Economy**: Generous early game to establish engagement
 
 ### Monetization Balance
+
 - **Free Player Viability**: 70-80% of content accessible without payment
 - **Premium Value**: 2-5x efficiency improvement, not exclusive access
 - **Whale Protection**: Spending caps or diminishing returns
@@ -1592,12 +1701,14 @@ Use this format:
 ## Difficulty Scaling Benchmarks
 
 ### Learning Curve Standards
+
 - **Tutorial Completion**: 85%+ completion rate target
 - **Early Game Retention**: 70%+ players reach level 5 or equivalent
 - **Skill Gate Distribution**: 90% easy, 8% medium, 2% expert content
 - **Failure Recovery**: Maximum 3 attempts before offering assistance
 
 ### Challenge Progression
+
 - **Difficulty Increase**: 10-20% complexity increase per level
 - **Mastery Time**: 3-5 repetitions to achieve competence
 - **Skill Ceiling**: 100+ hours to approach mastery
@@ -1606,12 +1717,14 @@ Use this format:
 ## Engagement Metrics
 
 ### Player Behavior Targets
+
 - **Daily Return Rate**: 40%+ for mobile, 25%+ for PC/console
 - **Weekly Retention**: 20%+ Week 1, 10%+ Week 4
 - **Session Frequency**: 2-4 sessions per day for mobile
 - **Content Completion**: 60%+ players complete tutorial
 
 ### Social Engagement
+
 - **Multiplayer Adoption**: 30%+ try social features
 - **Community Participation**: 10%+ engage with community content
 - **User-Generated Content**: 5%+ create shareable content
@@ -1620,12 +1733,14 @@ Use this format:
 ## Quality Assurance Benchmarks
 
 ### Performance Standards
+
 - **Load Times**: Under 3 seconds for mobile, 5 seconds for PC
 - **Frame Rate**: Consistent 60fps on target platforms
 - **Memory Usage**: Under 2GB for mobile, 4GB for PC
 - **Battery Impact**: Under 10% drain per hour on mobile
 
 ### Accessibility Compliance
+
 - **WCAG AA Compliance**: Minimum standard for text and interface
 - **Color Blind Support**: Full functionality without color dependence
 - **Motor Accessibility**: One-handed play support where appropriate

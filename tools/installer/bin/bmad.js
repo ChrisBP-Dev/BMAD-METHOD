@@ -322,6 +322,44 @@ async function promptInstallation() {
   // Use selected IDEs directly
   answers.ides = ides;
 
+  // Ask for technical preferences template (only for full installation)
+  if (installType === 'full') {
+    const { technicalPreferencesTemplate } = await inquirer.prompt([
+      {
+        type: 'list',
+        name: 'technicalPreferencesTemplate',
+        message: 'Choose a technical preferences template for your project:',
+        choices: [
+          {
+            name: '🎯 Flutter + Firebase + Riverpod - Mobile development stack',
+            value: 'flutter'
+          },
+          {
+            name: '⚛️  React + Next.js + TypeScript - Modern web development stack',
+            value: 'react'
+          },
+          {
+            name: '📝 Blank template - Start from scratch and customize',
+            value: 'blank'
+          },
+          {
+            name: '🔄 Use current project preferences - Copy from existing installation',
+            value: 'current'
+          }
+        ],
+        default: 'blank'
+      }
+    ]);
+    answers.technicalPreferencesTemplate = technicalPreferencesTemplate;
+    
+    if (technicalPreferencesTemplate !== 'blank') {
+      console.log(chalk.cyan(`\n📋 Selected template: ${technicalPreferencesTemplate === 'flutter' ? 'Flutter + Firebase + Riverpod' : 
+                                                      technicalPreferencesTemplate === 'react' ? 'React + Next.js + TypeScript' :
+                                                      'Current project preferences'}`));
+      console.log(chalk.dim('   This will create docs/technical-preferences.md with your selected stack preferences.\n'));
+    }
+  }
+
   // Ask for web bundles installation
   const { includeWebBundles } = await inquirer.prompt([
     {

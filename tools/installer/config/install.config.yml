@@ -8,6 +8,25 @@ installation-options:
     name: Single Agent
     description: Select and install a single agent with its dependencies
     action: copy-agent
+
+technical-preferences-templates:
+  flutter:
+    name: Flutter + Firebase + Riverpod
+    description: Mobile-first development with Flutter, Firebase backend, and Riverpod state management
+    file: bmad-core/templates/technical-preferences-flutter-tmpl.md
+  react:
+    name: React + Next.js + TypeScript
+    description: Modern web development with React, Next.js, and TypeScript
+    file: bmad-core/templates/technical-preferences-react-tmpl.md
+  blank:
+    name: Blank Template
+    description: Start with a blank template and customize your own preferences
+    file: bmad-core/templates/technical-preferences-blank-tmpl.md
+  current:
+    name: Use Current Project Preferences
+    description: Copy existing technical-preferences.md from .bmad-core/data/ if available
+    file: .bmad-core/data/technical-preferences.md
+
 agent-dependencies:
   core-files:
     - bmad-core/utils/template-format.md
