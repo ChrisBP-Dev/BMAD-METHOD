@@ -5106,74 +5106,74 @@ Keep it action-oriented and forward-looking.]]
 ==================== START: data#technical-preferences ====================
 # User-Defined Preferred Patterns and Preferences
 
-## 🎯 Stack Principal Flutter
+## 🎯 Primary Flutter Stack
 
 ### Mobile Development Framework
-- **Framework**: Flutter 3.32.5+ (siempre última versión estable)
-- **Language**: Dart 3.8.1+ (siempre última versión compatible)
+- **Framework**: Flutter 3.32.5+ (always latest stable version)
+- **Language**: Dart 3.8.1+ (always latest compatible version)
 - **Platforms**: iOS, Android, Web (mobile-first approach)
-- **IDE**: Android Studio / VS Code con extensiones Flutter
+- **IDE**: Android Studio / VS Code with Flutter extensions
 
 ### State Management
 - **Primary**: Riverpod 2.6.1+ (flutter_riverpod + riverpod_annotation)
-- **Architecture**: Provider pattern con code generation
-- **State Types**: StateProvider, FutureProvider, StreamProvider según necesidad
+- **Architecture**: Provider pattern with code generation
+- **State Types**: StateProvider, FutureProvider, StreamProvider as needed
 - **Rationale**: Type-safe, compile-time safety, excellent DevTools
 
 ### Backend & Services
-- **Primary Backend**: Firebase (ecosistema completo)
+- **Primary Backend**: Firebase (complete ecosystem)
 - **Authentication**: Firebase Auth 5.6.0+
 - **Database**: Cloud Firestore 5.6.9+
 - **Functions**: Cloud Functions 5.5.2+
 - **Core**: Firebase Core 3.14.0+
-- **Rationale**: Ecosystem completo, escalable, excelente DX
+- **Rationale**: Complete ecosystem, scalable, excellent DX
 
 ### Navigation
 - **Router**: go_router 15.2.0+
-- **Pattern**: Declarative routing con type-safe routes
-- **Structure**: Nested routing para complex navigation
-- **Rationale**: Más flexible que Navigator 2.0 nativo
+- **Pattern**: Declarative routing with type-safe routes
+- **Structure**: Nested routing for complex navigation
+- **Rationale**: More flexible than native Navigator 2.0
 
 ### Internationalization
-- **Primary**: flutter_localizations (SDK nativo)
-- **Format**: intl 0.20.2+ para formateo
-- **Pattern**: ARB files con code generation
-- **Support**: Multi-language desde día 1
-- **Tools**: flutter_gen 5.3.0+ para type-safe localizations
-- **Structure**: lib/l10n/arb/ para archivos ARB organizados
+- **Primary**: flutter_localizations (native SDK)
+- **Format**: intl 0.20.2+ for formatting
+- **Pattern**: ARB files with code generation
+- **Support**: Multi-language from day 1
+- **Tools**: flutter_gen 5.3.0+ for type-safe localizations
+- **Structure**: lib/l10n/arb/ for organized ARB files
 
 ### Code Generation & Serialization
 - **Models**: freezed 3.0.6+ + freezed_annotation 3.0.0+
 - **JSON**: json_annotation 4.9.0+ + json_serializable 6.9.5+
-- **Riverpod**: riverpod_annotation 2.6.1+ para providers
-- **Build**: build_runner 2.4.15+ para code generation
-- **L10n**: flutter_gen para assets y localizations type-safe
+- **Riverpod**: riverpod_annotation 2.6.1+ for providers
+- **Build**: build_runner 2.4.15+ for code generation
+- **L10n**: flutter_gen for type-safe assets and localizations
 
 ## 🤖 Artificial Intelligence
 
 ### AI Platform
 - **Primary**: Vertex AI (Google Cloud)
-- **Integration**: Via Cloud Functions o directo desde Flutter
+- **Integration**: Via Cloud Functions or directly from Flutter
 - **Use Cases**: Text generation, image analysis, recommendations
-- **Rationale**: Integración perfecta con Firebase, pricing competitivo
+- **Rationale**: Perfect integration with Firebase, competitive pricing
 
-### AI Packages (cuando sea necesario)
-- **HTTP**: http package para calls directas a Vertex AI
-- **Cloud Functions**: firebase_functions para AI processing
-- **Local ML**: tflite_flutter si se necesita procesamiento local
+### AI Packages (when necessary)
+- **HTTP**: http package for direct calls to Vertex AI
+- **Cloud Functions**: firebase_functions for AI processing
+- **Local ML**: tflite_flutter if local processing is needed
 
-## 🏗️ Arquitectura Flutter Preferida (Clean Architecture + SOLID)
+## 🏗️ Preferred Flutter Architecture (Clean Architecture + SOLID)
 
-### Principios Arquitectónicos
+### Architectural Principles
 - **Clean Architecture**: Separation of concerns, dependency inversion
 - **SOLID Principles**: Single responsibility, open/closed, Liskov substitution, interface segregation, dependency inversion
 - **Features First**: Organize by business features, not technical layers
 - **Composition over Inheritance**: Prefer widget composition over complex inheritance hierarchies
 
-### SOLID Principles en Flutter
+### SOLID Principles in Flutter
 ```dart
 // S - Single Responsibility Principle
-// ✅ CORRECTO - Una responsabilidad por widget
+// ✅ CORRECT - One responsibility per widget
 class UserAvatar extends StatelessWidget {
   const UserAvatar({super.key, required this.user});
   final User user;
@@ -5192,7 +5192,7 @@ class UserAvatar extends StatelessWidget {
 }
 
 // O - Open/Closed Principle
-// ✅ CORRECTO - Extensible sin modificar
+// ✅ CORRECT - Extensible without modification
 abstract class BaseButton extends StatelessWidget {
   const BaseButton({super.key});
   
@@ -5224,7 +5224,7 @@ class LoadingButton extends BaseButton {
 }
 
 // L - Liskov Substitution Principle
-// ✅ CORRECTO - Subclasses intercambiables
+// ✅ CORRECT - Interchangeable subclasses
 abstract class DataSource<T> {
   Future<List<T>> getData();
 }
@@ -5246,7 +5246,7 @@ class LocalDataSource<T> implements DataSource<T> {
 }
 
 // I - Interface Segregation Principle
-// ✅ CORRECTO - Interfaces específicas
+// ✅ CORRECT - Specific interfaces
 abstract class Readable {
   Future<String> read();
 }
@@ -5261,7 +5261,7 @@ abstract class Cacheable {
 }
 
 // D - Dependency Inversion Principle
-// ✅ CORRECTO - Depende de abstracciones
+// ✅ CORRECT - Depends on abstractions
 class UserService {
   final UserRepository _repository; // Abstraction, not concrete
   
@@ -5406,10 +5406,10 @@ class AuthState with _$AuthState {
 ```
 
 ### Firebase Architecture (Clean Architecture Compliant)
-- **Domain Layer**: Pure business entities sin dependencias de Firebase
-- **Data Layer**: Firebase implementations como datasources
-- **Repository Pattern**: Abstract contracts en domain, implementations en data
-- **Dependency Injection**: Riverpod providers para inyección de dependencias
+- **Domain Layer**: Pure business entities without Firebase dependencies
+- **Data Layer**: Firebase implementations as datasources
+- **Repository Pattern**: Abstract contracts in domain, implementations in data
+- **Dependency Injection**: Riverpod providers for dependency injection
 
 ### Dependency Injection Patterns (Riverpod)
 ```dart
@@ -5443,21 +5443,21 @@ GetCurrentUserUseCase getCurrentUserUseCase(GetCurrentUserUseCaseRef ref) {
 - **Immutable State**: Use @immutable annotations, prefer const constructors
 
 ### Scrollable Widgets & Performance
-- **Slivers First**: Prefer CustomScrollView + Slivers over Column/ListView para complex layouts
-- **Lazy Loading**: Always use .builder constructors para listas largas
-- **Viewport Optimization**: SliverFillRemaining, SliverToBoxAdapter para mixed content
-- **Performance**: Slivers provide better scroll performance y memory management
+- **Slivers First**: Prefer CustomScrollView + Slivers over Column/ListView for complex layouts
+- **Lazy Loading**: Always use .builder constructors for long lists
+- **Viewport Optimization**: SliverFillRemaining, SliverToBoxAdapter for mixed content
+- **Performance**: Slivers provide better scroll performance and memory management
 
 ### Slivers Implementation Patterns
 ```dart
-// ✅ CORRECTO - Slivers para complex scrollable layouts
+// ✅ CORRECT - Slivers for complex scrollable layouts
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          // App bar que se colapsa
+          // Collapsible app bar
           const SliverAppBar(
             expandedHeight: 200.0,
             flexibleSpace: FlexibleSpaceBar(
@@ -5465,16 +5465,16 @@ class HomeScreen extends StatelessWidget {
               background: HeaderImage(),
             ),
           ),
-          // Sección de stats
+          // Stats section
           SliverToBoxAdapter(
             child: StatsSection(),
           ),
-          // Lista de items
+          // List of items
           SliverList.builder(
             itemCount: items.length,
             itemBuilder: (context, index) => ItemTile(items[index]),
           ),
-          // Grid de categorías
+          // Categories grid
           SliverGrid.count(
             crossAxisCount: 2,
             children: categories.map((cat) => CategoryCard(cat)).toList(),
@@ -5485,7 +5485,7 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-// ❌ EVITAR - Column + ListView causa overflow y performance issues
+// ❌ AVOID - Column + ListView causes overflow and performance issues
 Widget _buildBadLayout() {
   return Column(
     children: [
@@ -5503,7 +5503,7 @@ Widget _buildBadLayout() {
 
 ### Widget Creation Standards
 ```dart
-// ✅ CORRECTO - Widget class
+// ✅ CORRECT - Widget class
 class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
@@ -5527,7 +5527,7 @@ class CustomButton extends StatelessWidget {
   }
 }
 
-// ❌ INCORRECTO - Method returning widget
+// ❌ INCORRECT - Method returning widget
 Widget _buildButton(String text, VoidCallback onPressed) {
   return ElevatedButton(
     onPressed: onPressed,
@@ -5592,9 +5592,9 @@ class UserProfileCard extends StatelessWidget {
 
 ### Design System
 - **Approach**: Material Design 3 (Material You)
-- **Theme**: Dynamic theming con ColorScheme.fromSeed()
+- **Theme**: Dynamic theming with ColorScheme.fromSeed()
 - **Components**: Prefer Material 3 components
-- **Custom Widgets**: Component-based architecture siguiendo SOLID principles
+- **Custom Widgets**: Component-based architecture following SOLID principles
 
 ### Widget Organization
 ```dart
@@ -5611,42 +5611,42 @@ class ErrorWidget extends StatelessWidget { ... }
 ```
 
 ### Responsive Design
-- **Approach**: Mobile-first con adaptive layouts
-- **Breakpoints**: LayoutBuilder para responsive behavior
-- **Platform**: Platform-specific adaptations cuando sea necesario
+- **Approach**: Mobile-first with adaptive layouts
+- **Breakpoints**: LayoutBuilder for responsive behavior
+- **Platform**: Platform-specific adaptations when necessary
 - **Widget Composition**: Different widgets for different screen sizes
 
 ### Performance & Best Practices
 - **const Constructors**: Always use const when possible
 - **Widget Keys**: Use keys for list items and dynamic widgets
-- **Images**: Cached network images con fade transitions
-- **Lists**: ListView.builder para listas largas, Slivers para complex layouts
-- **Navigation**: Hero animations para transitions suaves
-- **Memory**: Dispose proper de controllers y subscriptions
+- **Images**: Cached network images with fade transitions
+- **Lists**: ListView.builder for long lists, Slivers for complex layouts
+- **Navigation**: Hero animations for smooth transitions
+- **Memory**: Proper disposal of controllers and subscriptions
 - **Build Method**: Keep build methods pure, no side effects
-- **Slivers**: Prefer CustomScrollView + Slivers para better scroll performance
+- **Slivers**: Prefer CustomScrollView + Slivers for better scroll performance
 
 ## 🧪 Testing Strategy
 
 ### Testing Framework
 - **Unit Tests**: flutter_test (SDK)
 - **Mocking**: mocktail 1.0.4+ (more flexible than mockito)
-- **Widget Tests**: flutter_test con testWidgets
-- **Integration**: integration_test package cuando sea necesario
+- **Widget Tests**: flutter_test with testWidgets
+- **Integration**: integration_test package when necessary
 
 ### Testing Patterns
-- **Providers**: Test providers en isolation
+- **Providers**: Test providers in isolation
 - **Repositories**: Mock Firebase dependencies
-- **Widgets**: Test UI behavior y state changes
-- **Coverage**: 80%+ para business logic
+- **Widgets**: Test UI behavior and state changes
+- **Coverage**: 80%+ for business logic
 
 ## 🔧 Development Tools & Quality
 
 ### Code Quality
-- **Linting**: very_good_analysis 9.0.0+ (más estricto que flutter_lints)
-- **Additional**: flutter_lints 6.0.0+ como baseline
-- **Format**: dart format con line length 120
-- **Import**: Relative imports para proyecto, absolute para packages
+- **Linting**: very_good_analysis 9.0.0+ (stricter than flutter_lints)
+- **Additional**: flutter_lints 6.0.0+ as baseline
+- **Format**: dart format with line length 120
+- **Import**: Relative imports for project, absolute for packages
 
 ### Development Dependencies
 ```yaml
@@ -5664,76 +5664,76 @@ dev_dependencies:
 ```
 
 ### Build Configuration
-- **Release**: --obfuscate --split-debug-info para production
+- **Release**: --obfuscate --split-debug-info for production
 - **Flavors**: Development, staging, production environments
-- **Assets**: Organized por feature en assets/ folder
+- **Assets**: Organized by feature in assets/ folder
 
 ## 🚀 Deployment & DevOps
 
 ### App Distribution
-- **iOS**: TestFlight para beta, App Store para production
+- **iOS**: TestFlight for beta, App Store for production
 - **Android**: Play Console Internal Testing → Closed Testing → Production
-- **CI/CD**: GitHub Actions o Bitrise para automated builds
+- **CI/CD**: GitHub Actions or Bitrise for automated builds
 
 ### Environment Management
-- **Config**: flutter_dotenv para environment variables
+- **Config**: flutter_dotenv for environment variables
 - **Flavors**: Development (dev Firebase), Production (prod Firebase)
-- **Secrets**: Environment variables, nunca hardcoded
+- **Secrets**: Environment variables, never hardcoded
 
 ### Performance Monitoring
 - **Crashes**: Firebase Crashlytics
 - **Performance**: Firebase Performance Monitoring
 - **Analytics**: Firebase Analytics + custom events
 
-## ❌ Tecnologías a Evitar
+## ❌ Technologies to Avoid
 
 ### State Management
-- **Avoid**: setState para complex state
-- **Avoid**: BLoC/Cubit (preferir Riverpod)
-- **Avoid**: Provider package (legacy, usar Riverpod)
+- **Avoid**: setState for complex state
+- **Avoid**: BLoC/Cubit (prefer Riverpod)
+- **Avoid**: Provider package (legacy, use Riverpod)
 
 ### Navigation
-- **Avoid**: Navigator 1.0 manual para apps complejas
+- **Avoid**: Navigator 1.0 manual for complex apps
 - **Avoid**: fluro (deprecated)
-- **Avoid**: auto_route (más complejo que go_router)
+- **Avoid**: auto_route (more complex than go_router)
 
 ### Backend
-- **Avoid**: Custom backends para MVPs (usar Firebase)
-- **Avoid**: REST APIs custom cuando Firebase funciona
-- **Avoid**: GraphQL para apps simples (overkill)
+- **Avoid**: Custom backends for MVPs (use Firebase)
+- **Avoid**: Custom REST APIs when Firebase works
+- **Avoid**: GraphQL for simple apps (overkill)
 
 ### Dependencies
-- **Avoid**: Packages sin null safety
-- **Avoid**: Packages sin mantenimiento activo (>6 meses)
-- **Avoid**: Packages con muchas dependencies transitivas
+- **Avoid**: Packages without null safety
+- **Avoid**: Packages without active maintenance (>6 months)
+- **Avoid**: Packages with many transitive dependencies
 
-### Anti-Patterns to Avoid
-- **God Widgets**: Widgets con más de 300 líneas o múltiples responsabilidades
-- **Method Widget Builders**: Métodos que retornan widgets en lugar de clases
-- **Tight Coupling**: Widgets que dependen directamente de servicios externos
-- **Mutable State**: State classes sin @immutable o const constructors
-- **Deep Widget Trees**: Más de 10 niveles de anidación sin composition
-- **Column + ListView**: Usar Slivers en su lugar para mejor performance
+### UI Anti-Patterns to Avoid
+- **God Widgets**: Widgets with 300+ lines or multiple responsibilities
+- **Method Widget Builders**: Methods that return widgets instead of classes
+- **Tight Coupling**: Widgets that depend directly on external services
+- **Mutable State**: State classes without @immutable or const constructors
+- **Deep Widget Trees**: More than 10 levels of nesting without composition
+- **Column + ListView**: Use Slivers instead for better performance
 
-## 📚 Lecciones Aprendidas
+## 📚 Lessons Learned
 
 ### Firebase
-- Cloud Functions en TypeScript mejor DX que Python/Go
+- Cloud Functions in TypeScript better DX than Python/Go
 - Firestore compound queries require careful index planning
 - Firebase Auth persistent state works excellent with Riverpod
 - Cloud Functions cold starts can be mitigated with keep-warm strategies
 
 ### Flutter Performance
-- **CustomScrollView + Slivers**: Superior performance que Column + ListView
-- **ListView.builder**: Es crucial para listas >100 items
-- **Image caching**: Significant impact en user experience
+- **CustomScrollView + Slivers**: Superior performance than Column + ListView
+- **ListView.builder**: Essential for lists >100 items
+- **Image caching**: Significant impact on user experience
 - **go_router navigation**: Transitions smoother than Navigator 1.0
 - **Riverpod code generation**: Prevents runtime errors
 
 ### Development Workflow
 - **freezed + json_serializable**: Save significant boilerplate
 - **very_good_analysis**: Catches issues early, worth the strict rules
-- **Firebase emulator suite**: Essential para local development
+- **Firebase emulator suite**: Essential for local development
 - **Hot reload**: Works better with Riverpod than other state management
 - **flutter_gen**: Eliminates string-based asset references
 
@@ -5743,34 +5743,34 @@ dev_dependencies:
 - Firebase Analytics data appears with ~24h delay
 - App size optimization critical for emerging markets
 
-## 🚀 Exploraciones Futuras
+## 🚀 Future Explorations
 
-### Próximos a Evaluar
-- **Flutter 3.25+**: Impeller engine improvements para better performance
+### Next to Evaluate
+- **Flutter 3.25+**: Impeller engine improvements for better performance
 - **Dart 3.9+**: New language features, pattern matching improvements
 - **Firebase Data Connect**: New GraphQL layer for Firestore
-- **Vertex AI Embeddings**: Para semantic search en apps
+- **Vertex AI Embeddings**: For semantic search in apps
 
-### Tecnologías en Radar
-- **FlutterFlow**: Para rapid prototyping de UIs complejas
-- **Shorebird**: Code push para Flutter apps
-- **Flutter Web**: Cuando performance mejore para production apps
-- **Flutter Desktop**: Para cross-platform desktop expansion
+### Technologies on Radar
+- **FlutterFlow**: For rapid prototyping of complex UIs
+- **Shorebird**: Code push for Flutter apps
+- **Flutter Web**: When performance improves for production apps
+- **Flutter Desktop**: For cross-platform desktop expansion
 
 ### AI Integration Opportunities
 - **Vertex AI Generative APIs**: Text, image, multimodal generation
 - **Firebase ML**: Custom model deployment
-- **TensorFlow Lite**: Edge AI para offline capabilities
-- **LangChain Dart**: Si ecosystem madura
+- **TensorFlow Lite**: Edge AI for offline capabilities
+- **LangChain Dart**: If ecosystem matures
 
 ## 🎮 Gaming Considerations (Flutter + Flame)
 
-### Game Development (cuando aplique)
-- **Engine**: Flame 1.12.0+ para 2D games
+### Game Development (when applicable)
+- **Engine**: Flame 1.12.0+ for 2D games
 - **Performance**: Flame component system + object pooling
-- **Audio**: audioplayers o flame_audio
-- **Physics**: flame_forge2d para physics-based games
-- **Backend**: Firebase para leaderboards, user progress, analytics
+- **Audio**: audioplayers or flame_audio
+- **Physics**: flame_forge2d for physics-based games
+- **Backend**: Firebase for leaderboards, user progress, analytics
 
 ### Game-Specific Packages
 ```yaml
@@ -5818,14 +5818,14 @@ dev_dependencies:
 
 ---
 
-## 📝 Notas de Mantenimiento
+## 📝 Maintenance Notes
 
-- **Última actualización**: Basado en Flutter 3.32.5 / Dart 3.8.1
-- **Próxima revisión**: Cada release mayor de Flutter
-- **Política de versiones**: Siempre usar latest stable, actualizar dependencies mensualmente
-- **Testing**: Todas las preferencias validadas en proyectos de producción
+- **Last updated**: Based on Flutter 3.32.5 / Dart 3.8.1
+- **Next review**: Every major Flutter release
+- **Version policy**: Always use latest stable, update dependencies monthly
+- **Testing**: All preferences validated in production projects
 
-**Este perfil técnico está optimizado para desarrollo mobile-first con Flutter + Firebase + Riverpod, priorizando developer experience, type safety, y maintainability a largo plazo.**
+**This technical profile is optimized for mobile-first development with Flutter + Firebase + Riverpod, prioritizing developer experience, type safety, and long-term maintainability.**
 ==================== END: data#technical-preferences ====================
 
 ==================== START: tasks#generate-ai-frontend-prompt ====================
