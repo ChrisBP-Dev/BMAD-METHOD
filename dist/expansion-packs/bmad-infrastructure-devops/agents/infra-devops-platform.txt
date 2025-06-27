@@ -2026,7 +2026,7 @@ This checklist serves as a comprehensive framework for validating infrastructure
 ## 🎯 Stack Principal Flutter
 
 ### Mobile Development Framework
-- **Framework**: Flutter 3.32.4+ (siempre última versión estable)
+- **Framework**: Flutter 3.32.5+ (siempre última versión estable)
 - **Language**: Dart 3.8.1+ (siempre última versión compatible)
 - **Platforms**: iOS, Android, Web (mobile-first approach)
 - **IDE**: Android Studio / VS Code con extensiones Flutter
@@ -2056,12 +2056,15 @@ This checklist serves as a comprehensive framework for validating infrastructure
 - **Format**: intl 0.20.2+ para formateo
 - **Pattern**: ARB files con code generation
 - **Support**: Multi-language desde día 1
+- **Tools**: flutter_gen 5.3.0+ para type-safe localizations
+- **Structure**: lib/l10n/arb/ para archivos ARB organizados
 
 ### Code Generation & Serialization
 - **Models**: freezed 3.0.6+ + freezed_annotation 3.0.0+
 - **JSON**: json_annotation 4.9.0+ + json_serializable 6.9.5+
 - **Riverpod**: riverpod_annotation 2.6.1+ para providers
 - **Build**: build_runner 2.4.15+ para code generation
+- **L10n**: flutter_gen para assets y localizations type-safe
 
 ## 🤖 Artificial Intelligence
 
@@ -2251,7 +2254,7 @@ class GetCurrentUserUseCase {
 ```dart
 // models/ - Data transfer objects
 @freezed
-class UserModel with _$UserModel {
+abstract class UserModel with _$UserModel {
   const factory UserModel({
     required String id,
     required String email,
@@ -2355,6 +2358,65 @@ GetCurrentUserUseCase getCurrentUserUseCase(GetCurrentUserUseCaseRef ref) {
 - **Composition over Inheritance**: Build complex UI through widget composition
 - **Reusable Components**: Create widget libraries, not one-off widgets
 - **Immutable State**: Use @immutable annotations, prefer const constructors
+
+### Scrollable Widgets & Performance
+- **Slivers First**: Prefer CustomScrollView + Slivers over Column/ListView para complex layouts
+- **Lazy Loading**: Always use .builder constructors para listas largas
+- **Viewport Optimization**: SliverFillRemaining, SliverToBoxAdapter para mixed content
+- **Performance**: Slivers provide better scroll performance y memory management
+
+### Slivers Implementation Patterns
+```dart
+// ✅ CORRECTO - Slivers para complex scrollable layouts
+class HomeScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: CustomScrollView(
+        slivers: [
+          // App bar que se colapsa
+          const SliverAppBar(
+            expandedHeight: 200.0,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text('Home'),
+              background: HeaderImage(),
+            ),
+          ),
+          // Sección de stats
+          SliverToBoxAdapter(
+            child: StatsSection(),
+          ),
+          // Lista de items
+          SliverList.builder(
+            itemCount: items.length,
+            itemBuilder: (context, index) => ItemTile(items[index]),
+          ),
+          // Grid de categorías
+          SliverGrid.count(
+            crossAxisCount: 2,
+            children: categories.map((cat) => CategoryCard(cat)).toList(),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// ❌ EVITAR - Column + ListView causa overflow y performance issues
+Widget _buildBadLayout() {
+  return Column(
+    children: [
+      HeaderWidget(),
+      Expanded(
+        child: ListView.builder(
+          itemCount: items.length,
+          itemBuilder: (context, index) => ItemTile(items[index]),
+        ),
+      ),
+    ],
+  );
+}
+```
 
 ### Widget Creation Standards
 ```dart
@@ -2475,10 +2537,11 @@ class ErrorWidget extends StatelessWidget { ... }
 - **const Constructors**: Always use const when possible
 - **Widget Keys**: Use keys for list items and dynamic widgets
 - **Images**: Cached network images con fade transitions
-- **Lists**: ListView.builder para listas largas
+- **Lists**: ListView.builder para listas largas, Slivers para complex layouts
 - **Navigation**: Hero animations para transitions suaves
 - **Memory**: Dispose proper de controllers y subscriptions
 - **Build Method**: Keep build methods pure, no side effects
+- **Slivers**: Prefer CustomScrollView + Slivers para better scroll performance
 
 ## 🧪 Testing Strategy
 
@@ -2514,6 +2577,7 @@ dev_dependencies:
   mocktail: ^1.0.4           # Mocking for tests
   riverpod_annotation: ^2.6.1 # Riverpod code generation
   very_good_analysis: ^9.0.0  # Strict analysis
+  flutter_gen: ^5.3.0        # Type-safe asset generation
 ```
 
 ### Build Configuration
@@ -2566,6 +2630,7 @@ dev_dependencies:
 - **Tight Coupling**: Widgets que dependen directamente de servicios externos
 - **Mutable State**: State classes sin @immutable o const constructors
 - **Deep Widget Trees**: Más de 10 niveles de anidación sin composition
+- **Column + ListView**: Usar Slivers en su lugar para mejor performance
 
 ## 📚 Lecciones Aprendidas
 
@@ -2576,16 +2641,18 @@ dev_dependencies:
 - Cloud Functions cold starts can be mitigated with keep-warm strategies
 
 ### Flutter Performance
-- ListView.builder es crucial para listas >100 items
-- Image caching significant impact en user experience
-- go_router navigation transitions smoother than Navigator 1.0
-- Riverpod code generation prevents runtime errors
+- **CustomScrollView + Slivers**: Superior performance que Column + ListView
+- **ListView.builder**: Es crucial para listas >100 items
+- **Image caching**: Significant impact en user experience
+- **go_router navigation**: Transitions smoother than Navigator 1.0
+- **Riverpod code generation**: Prevents runtime errors
 
 ### Development Workflow
-- freezed + json_serializable save significant boilerplate
-- very_good_analysis catches issues early, worth the strict rules
-- Firebase emulator suite essential for local development
-- Hot reload works better with Riverpod than other state management
+- **freezed + json_serializable**: Save significant boilerplate
+- **very_good_analysis**: Catches issues early, worth the strict rules
+- **Firebase emulator suite**: Essential para local development
+- **Hot reload**: Works better with Riverpod than other state management
+- **flutter_gen**: Eliminates string-based asset references
 
 ### Production Deployment
 - iOS builds require specific Xcode versions, maintain compatibility matrix
@@ -2663,13 +2730,14 @@ dev_dependencies:
   mocktail: ^1.0.4           # Testing mocks
   riverpod_annotation: ^2.6.1 # Riverpod code generation
   very_good_analysis: ^9.0.0  # Strict linting rules
+  flutter_gen: ^5.3.0        # Type-safe asset generation
 ```
 
 ---
 
 ## 📝 Notas de Mantenimiento
 
-- **Última actualización**: Basado en Flutter 3.32.4 / Dart 3.8.1
+- **Última actualización**: Basado en Flutter 3.32.5 / Dart 3.8.1
 - **Próxima revisión**: Cada release mayor de Flutter
 - **Política de versiones**: Siempre usar latest stable, actualizar dependencies mensualmente
 - **Testing**: Todas las preferencias validadas en proyectos de producción
